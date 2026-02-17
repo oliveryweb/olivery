@@ -204,41 +204,57 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModalFunction();
 });
 
-// Observe all elements with animate-on-scroll class
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.1 });
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+);
 
 document.querySelectorAll(".animate-on-scroll").forEach((el, index) => {
-  el.style.transitionDelay = `${index * 0.05}s`;
+  el.style.transitionDelay = `${index * 0.03}s`;
   observer.observe(el);
 });
 
 
-// Header scroll and progress effect
 const header = document.querySelector(".main-header");
 const progressBar = document.querySelector(".scroll-progress");
+let ticking = false;
 
-window.addEventListener("scroll", () => {
-  // Sticky header
-  if (window.scrollY > 50) {
+function updateOnScroll() {
+  const scrollY = window.scrollY;
+  
+  if (scrollY > 50) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
 
-  // Progress bar
-  const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = (window.scrollY / windowHeight) * 100;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (scrollY / docHeight) * 100;
   progressBar.style.width = `${scrolled}%`;
-});
+
+  const heroContent = document.querySelector(".hero-content");
+  if (heroContent && scrollY < window.innerHeight) {
+    heroContent.style.transform = `translateY(${scrollY * 0.25}px)`;
+    heroContent.style.opacity = 1 - scrollY / (window.innerHeight * 0.9);
+  }
+
+  ticking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    requestAnimationFrame(updateOnScroll);
+    ticking = true;
+  }
+}, { passive: true });
 
 
-// Smooth scroll for anchor links with offset
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     if (this.getAttribute("href") === "#") return;
@@ -259,18 +275,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Parallax effect for hero section refined
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset;
-  const heroContent = document.querySelector(".hero-content");
-
-  if (heroContent && scrolled < window.innerHeight) {
-    heroContent.style.transform = `translateY(${scrolled * 0.35}px)`;
-    heroContent.style.opacity = 1 - scrolled / (window.innerHeight * 0.8);
-  }
-});
-
-// Theme Toggle Logic
 const themeToggle = document.getElementById("themeToggle");
 const themeText = document.getElementById("themeText");
 const body = document.body;
@@ -279,7 +283,6 @@ function updateThemeText(isDark) {
   themeText.textContent = isDark ? "MODO CLARO" : "MODO OSCURO";
 }
 
-// Check for saved theme preference
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   const isDark = savedTheme === "dark";
@@ -293,23 +296,6 @@ themeToggle.addEventListener("click", () => {
   updateThemeText(isDark);
 });
 
-// Initial observer for reveal animations
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-document.querySelectorAll(".animate-on-scroll").forEach((el) => {
-  revealObserver.observe(el);
-});
-
-// FAQ Accordion logic
 const faqItems = document.querySelectorAll(".faq-item");
 faqItems.forEach((item) => {
   const question = item.querySelector(".faq-question");
@@ -322,4 +308,3 @@ faqItems.forEach((item) => {
     item.classList.toggle("active");
   });
 });
-
