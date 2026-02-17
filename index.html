@@ -3,7 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Olivery - Aceite de Oliva Premium</title>
+    
+    <title>Olivery | Aceite de Oliva Premium y AOVE de Selección</title>
+    <meta name="description" content="Descubrí Olivery, tu boutique de aceites de oliva premium. Selección exclusiva de Aceites de Oliva Virgen Extra (AOVE) de las mejores regiones. Calidad y pureza en tu mesa." />
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Olivery | Aceite de Oliva Premium" />
+    <meta property="og:description" content="Llevamos la excelencia de las mejores regiones olivícolas a tu mesa. Conoce nuestra selección exclusiva." />
+    <meta property="og:image" content="logo.jpeg" />
+    <meta property="og:url" content="https://tu-dominio.vercel.app/" />
+
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
@@ -11,10 +26,9 @@
     />
   </head>
   <body>
-    <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
       <div class="theme-icon-wrapper">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -25,35 +39,31 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </div>
       <span id="themeText" class="theme-text">MODO OSCURO</span>
     </button>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/3512402359" class="whatsapp-button" target="_blank">
-      <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
-        />
+    <a href="https://wa.me/3512402359" class="whatsapp-button" target="_blank" rel="noopener">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
       <span class="whatsapp-text">Hacé tu pedido acá</span>
     </a>
 
-    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <img
           src="logo.jpeg"
-          alt="Olivery Logo"
+          alt="Olivery Boutique de Aceites de Oliva"
           class="hero-logo animate-fade-in-up"
         />
-        <h1 class="animate-fade-in-up delay-1">Olivery</h1>
+        <h1 class="animate-fade-in-up delay-1">Olivery | Aceite de Oliva Premium</h1>
         <p class="subtitle animate-fade-in-up delay-2">
-          La mejor selección de aceites de oliva premium
+          La mejor selección de aceites de oliva virgen extra
         </p>
         <p class="description animate-fade-in-up delay-3">
           Elegimos cuidadosamente cada marca para llevar a tu mesa solo la
@@ -68,7 +78,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section class="about">
       <div class="container">
         <div class="about-content">
@@ -76,24 +85,22 @@
             <h2 class="animate-on-scroll">Curaduría y Excelencia</h2>
             <p class="animate-on-scroll">
               Nos apasiona descubrir y acercarte los aceites de oliva más
-              destacados del mercado. Seleccionamos cuidadosamente marcas que
-              destacan por su sabor único, aroma intenso y procesos de
-              elaboración impecables.
+              destacados del mercado. Seleccionamos marcas que
+              destacan por su sabor único, aroma intenso y procesos impecables.
             </p>
             <p class="animate-on-scroll">
               Nuestro compromiso es ser tu puente hacia la calidad suprema,
               ofreciéndote una variedad de perfiles de sabor de distintas fincas
-              y productores, garantizando siempre un producto excepcional.
+              y productores.
             </p>
           </div>
           <div class="about-image animate-on-scroll">
-            <img src="descarga.jpeg" alt="Nuestros Olivares" class="about-img" />
+            <img src="descarga.jpeg" alt="Olivares seleccionados por Olivery" class="about-img" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section -->
     <section id="productos" class="products">
       <div class="container">
         <h2 class="section-title animate-on-scroll">Nuestros Productos</h2>
@@ -102,12 +109,11 @@
         </p>
 
         <div class="products-grid">
-          <!-- Product 1 -->
           <div class="product-card animate-on-scroll" data-product="1">
             <div class="product-image">
               <img
                 src="tupeli-250.png"
-                alt="Aceite Tupelí Extra Virgen x 250 ml"
+                alt="Aceite Tupelí Extra Virgen x 250 ml en envase de vidrio"
                 class="product-img"
               />
               <div class="product-overlay">
@@ -122,12 +128,11 @@
             </div>
           </div>
 
-          <!-- Product 2 -->
           <div class="product-card animate-on-scroll" data-product="2">
             <div class="product-image">
               <img
                 src="LaNobleza-250.png"
-                alt="Aceite La Nobleza Virgen x 250 ml"
+                alt="Aceite La Nobleza Virgen x 250 ml en envase PET"
                 class="product-img"
               />
               <div class="product-overlay">
@@ -141,320 +146,43 @@
               <p class="product-price">$ 7.000</p>
             </div>
           </div>
-
-          <!-- Product 3 -->
-          <div class="product-card animate-on-scroll" data-product="3">
-            <div class="product-image">
-              <div class="image-placeholder">
-                <span>Aceite Tradicional</span>
-              </div>
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3>Aceite Tradicional</h3>
-              <p class="product-brief">El sabor de la tradición</p>
-            </div>
+          
           </div>
-
-          <!-- Product 4 -->
-          <div class="product-card animate-on-scroll" data-product="4">
-            <div class="product-image">
-              <div class="image-placeholder">
-                <span>Aceite Reserva</span>
-              </div>
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3>Aceite Reserva</h3>
-              <p class="product-brief">Edición limitada</p>
-            </div>
-          </div>
-
-          <!-- Product 5 -->
-          <div class="product-card animate-on-scroll" data-product="5">
-            <div class="product-image">
-              <div class="image-placeholder">
-                <span>Aceite Aromático</span>
-              </div>
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3>Aceite Aromático</h3>
-              <p class="product-brief">Infusionado con hierbas</p>
-            </div>
-          </div>
-
-          <!-- Product 6 -->
-          <div class="product-card animate-on-scroll" data-product="6">
-            <div class="product-image">
-              <div class="image-placeholder">
-                <span>Aceite Suave</span>
-              </div>
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3>Aceite Suave</h3>
-              <p class="product-brief">Ideal para cocinar</p>
-            </div>
-          </div>
-
-          <!-- Product 7 -->
-          <div class="product-card animate-on-scroll" data-product="7">
-            <div class="product-image">
-              <div class="image-placeholder">
-                <span>Aceite Intenso</span>
-              </div>
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3>Aceite Intenso</h3>
-              <p class="product-brief">Sabor robusto y picante</p>
-            </div>
-          </div>
-
-          <!-- Product 8 -->
-          <div class="product-card animate-on-scroll" data-product="8">
-            <div class="product-image">
-              <div class="image-placeholder">
-                <span>Aceite Delicado</span>
-              </div>
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
-            </div>
-            <div class="product-info">
-              <h3>Aceite Delicado</h3>
-              <p class="product-brief">Perfecto para ensaladas</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
-      <div class="container">
-        <h2 class="section-title animate-on-scroll">
-          Beneficios para tu Salud
-        </h2>
-        <div class="benefits-grid">
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">🫀</div>
-            <h3>Corazón Saludable</h3>
-            <p>
-              Rico en ácidos grasos monoinsaturados que ayudan a mantener
-              niveles saludables de colesterol.
-            </p>
-          </div>
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">🛡️</div>
-            <h3>Antioxidante Natural</h3>
-            <p>
-              Contiene polifenoles y vitamina E que combaten el envejecimiento
-              celular.
-            </p>
-          </div>
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">🧠</div>
-            <h3>Salud Cerebral</h3>
-            <p>
-              Contribuye a la función cognitiva y puede reducir el riesgo de
-              enfermedades neurodegenerativas.
-            </p>
-          </div>
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">✨</div>
-            <h3>Piel Radiante</h3>
-            <p>
-              Hidrata y nutre la piel desde el interior, dejándola suave y
-              luminosa.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- FAQ Section -->
     <section class="faq">
       <div class="container border-top">
         <h2 class="section-title animate-on-scroll">Consultas Frecuentes</h2>
         <div class="faq-container">
-          <!-- Q1 -->
           <div class="faq-item animate-on-scroll">
             <div class="faq-question">
-              <h3>
-                ¿Cuál es la diferencia entre el Aceite de Oliva Virgen y el
-                Virgen Extra (AOVE)?
-              </h3>
+              <h3>¿Cuál es la diferencia entre el Aceite de Oliva Virgen y el Virgen Extra (AOVE)?</h3>
               <div class="faq-icon"></div>
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
                 El <strong>AOVE</strong> es la máxima calidad, un puro zumo de
-                aceituna sin defectos y con acidez menor a 0,8º. El Aceite de
-                Oliva Virgen puede tener defectos leves y su acidez puede llegar
-                hasta 2º.
+                aceituna sin defectos y con acidez menor a 0,8º.
               </div>
             </div>
           </div>
-
-          <!-- Q2 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>
-                ¿Es verdad que no se debe cocinar ni freír con Aceite de Oliva
-                Virgen Extra?
-              </h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                No, es un mito. El AOVE es saludable para cocinar y freír, ya
-                que resiste altas temperaturas (190 °C - 210 °C) sin degradarse
-                rápidamente, creando una capa protectora en los alimentos.
-              </div>
-            </div>
           </div>
-
-          <!-- Q3 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿El aceite de oliva caduca?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                No caduca técnicamente, pero tiene una
-                <strong>fecha de consumo preferente</strong> (generalmente 18 a
-                36 meses). Después de esta fecha, pierde propiedades de sabor y
-                aroma, pero sigue siendo seguro para el consumo.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q4 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿Qué significa el grado de acidez en la etiqueta?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                Indica la cantidad de ácidos grasos libres y es un indicador de
-                calidad, no de sabor. Una acidez baja (AOVE: <0,8º) significa
-                que la aceituna estaba sana y se procesó correctamente.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q5 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿Cómo debo conservar el aceite de oliva en casa?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                Protégelo de sus tres enemigos: <strong>luz, calor y aire</strong>.
-                Guárdalo en un lugar fresco (18-24 °C), oscuro y en envases
-                opacos y bien cerrados para evitar la oxidación.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q6 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿Engorda el aceite de oliva?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                Es una grasa con aporte calórico (885 kcal/100g), pero está
-                compuesto por grasas saludables (monoinsaturadas) vitales. En el
-                contexto de dietas como la mediterránea, su consumo no se
-                asocia a una mayor ganancia de peso.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q7 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿Cuáles son los principales beneficios para la salud del AOVE?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                Es rico en antioxidantes (Vitamina E y polifenoles) y ácido
-                oleico. Ayuda a reducir el colesterol "malo" (LDL), aumentar el
-                "bueno" (HDL) y mejorar el control de la glucosa y la presión
-                arterial.
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Q8 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿Puedo usar el aceite de oliva para el cuidado de la piel?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                Sí, es un cosmético natural que nutre e hidrata pieles secas y
-                ayuda a combatir el envejecimiento (por sus vitaminas A, D, E,
-                K). No recomendado para pieles con tendencia acneica.
-              </div>
-            </div>
-          </div>
-
-          <!-- Q9 -->
-          <div class="faq-item animate-on-scroll">
-            <div class="faq-question">
-              <h3>¿Cómo puedo identificar un aceite de calidad leyendo la etiqueta?</h3>
-              <div class="faq-icon"></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                Busca la denominación
-                <strong>"Aceite de Oliva Virgen Extra"</strong>, una
-                <strong>Denominación de Origen (D.O.)</strong>, la fecha de
-                cosecha y la indicación de <strong>"extracción en frío"</strong>.
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">Olivery</div>
-          <p>
-            &copy; 2026 Olivery Boutique de Aceites. Todos los derechos
-            reservados.
-          </p>
+          <p>&copy; 2026 Olivery Boutique de Aceites. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
 
-    <!-- Product Modal -->
-    <div class="modal" id="productModal">
+    <div class="modal" id="productModal" aria-hidden="true" role="dialog">
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal" aria-label="Cerrar modal">&times;</span>
         <div class="modal-body">
           <div class="modal-image">
             <div class="image-placeholder" id="modalImage">
@@ -463,9 +191,7 @@
           </div>
           <div class="modal-text">
             <h2 id="modalTitle">Título del Producto</h2>
-            <div class="modal-description" id="modalDescription">
-              <!-- Description will be inserted here -->
-            </div>
+            <div class="modal-description" id="modalDescription"></div>
           </div>
         </div>
       </div>
