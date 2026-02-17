@@ -54,27 +54,36 @@
     </a>
 
     <section class="hero">
-      <div class="hero-overlay"></div>
       <div class="hero-content">
         <img
           src="logo.jpeg"
-          alt="Olivery Boutique de Aceites de Oliva"
-          class="hero-logo animate-fade-in-up"
+          alt="Olivery Boutique"
+          class="hero-logo animate-on-scroll"
         />
-        <h1 class="animate-fade-in-up delay-1">Olivery | Aceite de Oliva Premium</h1>
-        <p class="subtitle animate-fade-in-up delay-2">
-          La mejor selección de aceites de oliva virgen extra
+        <h1 class="animate-on-scroll">
+          <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5C50 5 85 45 85 72A35 35 0 1 1 15 72C15 45 50 5 50 5Z" fill="url(#dropGradient)"/></svg></span>livery
+        </h1>
+        <!-- Gradiente para la gota EXACTO al logo -->
+        <svg width="0" height="0" style="position:absolute">
+          <defs>
+            <linearGradient id="dropGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#b5bc5e;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#8e9b48;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+
+        <p class="subtitle animate-on-scroll">
+          LA MEJOR SELECCIÓN DE ACEITES DE OLIVA PREMIUM
         </p>
-        <p class="description animate-fade-in-up delay-3">
-          Elegimos cuidadosamente cada marca para llevar a tu mesa solo la
-          excelencia y pureza de las mejores regiones olivícolas
+        <p class="description animate-on-scroll">
+          Elegimos cuidadosamente cada marca para llevar a tu mesa solo<br>
+          la excelencia y pureza de las mejores regiones olivícolas
         </p>
-        <a href="#productos" class="cta-button animate-fade-in-up delay-4"
-          >Descubre Nuestros Productos</a
+        <a href="#productos" class="cta-button animate-on-scroll"
+          >DESCUBRE NUESTROS PRODUCTOS</a
         >
-      </div>
-      <div class="scroll-indicator">
-        <div class="scroll-arrow"></div>
       </div>
     </section>
 
@@ -85,17 +94,17 @@
             <h2 class="animate-on-scroll">Curaduría y Excelencia</h2>
             <p class="animate-on-scroll">
               Nos apasiona descubrir y acercarte los aceites de oliva más
-              destacados del mercado. Seleccionamos marcas que
-              destacan por su sabor único, aroma intenso y procesos impecables.
+              destacados del mercado. Seleccionamos cuidadosamente
+              marcas que destacan por su sabor único, aroma intenso y procesos de elaboración impecables.
             </p>
             <p class="animate-on-scroll">
               Nuestro compromiso es ser tu puente hacia la calidad suprema,
               ofreciéndote una variedad de perfiles de sabor de distintas fincas
-              y productores.
+              y productores, garantizando siempre un producto excepcional.
             </p>
           </div>
           <div class="about-image animate-on-scroll">
-            <img src="descarga.jpeg" alt="Olivares seleccionados por Olivery" class="about-img" />
+            <img src="descarga.jpeg" alt="Olivery Experiencia Gourmet" />
           </div>
         </div>
       </div>
@@ -109,47 +118,140 @@
         </p>
 
         <div class="products-grid">
+          <!-- Producto 1 -->
           <div class="product-card animate-on-scroll" data-product="1">
             <div class="product-image">
-              <img
-                src="tupeli-250.png"
-                alt="Aceite Tupelí Extra Virgen x 250 ml en envase de vidrio"
-                class="product-img"
-              />
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
+              <img src="tupeli-250.png" alt="Aceite Tupelí" class="product-img" />
+              <div class="product-overlay"><span class="view-more">Ver más</span></div>
             </div>
             <div class="product-info">
               <h3>Aceite Tupelí Extra Virgen x 250 ml</h3>
               <p class="product-brief">Extra virgen de primera prensa</p>
-              <p class="product-tag">Envase de vidrio</p>
+              <p class="product-tag">ENVASE DE VIDRIO</p>
               <p class="product-price">$ 8.900</p>
             </div>
           </div>
 
+          <!-- Producto 2 -->
           <div class="product-card animate-on-scroll" data-product="2">
             <div class="product-image">
-              <img
-                src="LaNobleza-250.png"
-                alt="Aceite La Nobleza Virgen x 250 ml en envase PET"
-                class="product-img"
-              />
-              <div class="product-overlay">
-                <span class="view-more">Ver más</span>
-              </div>
+              <img src="LaNobleza-250.png" alt="Aceite La Nobleza" class="product-img" />
+              <div class="product-overlay"><span class="view-more">Ver más</span></div>
             </div>
             <div class="product-info">
               <h3>Aceite La Nobleza Virgen x 250 ml</h3>
               <p class="product-brief">Calidad virgen de sabor suave</p>
-              <p class="product-tag">Envase pet</p>
+              <p class="product-tag">ENVASE PET</p>
               <p class="product-price">$ 7.000</p>
             </div>
           </div>
-          
+
+          <!-- Producto 3 (Placeholder) -->
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <div class="image-placeholder"><span>Aceite Tradicional</span></div>
+            </div>
+            <div class="product-info">
+              <h3>Aceite Tradicional</h3>
+              <p class="product-brief">El sabor de la tradición</p>
+              <p class="product-tag">COSECHA 2024</p>
+              <p class="product-price">-</p>
+            </div>
           </div>
+
+          <!-- Fila 2 -->
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <div class="image-placeholder"><span>Aceite Reserva</span></div>
+            </div>
+            <div class="product-info">
+              <h3>Aceite Reserva</h3>
+              <p class="product-brief">Edición limitada</p>
+              <p class="product-tag">PREMIUM</p>
+              <p class="product-price">-</p>
+            </div>
+          </div>
+
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <div class="image-placeholder"><span>Aceite Aromático</span></div>
+            </div>
+            <div class="product-info">
+              <h3>Aceite Aromático</h3>
+              <p class="product-brief">Infusionado con hierbas</p>
+              <p class="product-tag">ESPECIAL</p>
+              <p class="product-price">-</p>
+            </div>
+          </div>
+
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <div class="image-placeholder"><span>Aceite Suave</span></div>
+            </div>
+            <div class="product-info">
+              <h3>Aceite Suave</h3>
+              <p class="product-brief">Ideal para cocinar</p>
+              <p class="product-tag">CLÁSICO</p>
+              <p class="product-price">-</p>
+            </div>
+          </div>
+
+          <!-- Fila 3 -->
+          <div class="product-card animate-on-scroll">
+            <div class="product-image" style="background:#7d8c70">
+              <div class="product-overlay" style="opacity:1"><span class="view-more">VER MÁS</span></div>
+            </div>
+            <div class="product-info">
+              <h3>Aceite Intenso</h3>
+              <p class="product-brief">Sabor robusto y picante</p>
+              <p class="product-tag">ALTA CALIDAD</p>
+              <p class="product-price">-</p>
+            </div>
+          </div>
+
+          <div class="product-card animate-on-scroll">
+            <div class="product-image">
+              <div class="image-placeholder"><span>Aceite Delicado</span></div>
+            </div>
+            <div class="product-info">
+              <h3>Aceite Delicado</h3>
+              <p class="product-brief">Perfecto para ensaladas</p>
+              <p class="product-tag">GOURMET</p>
+              <p class="product-price">-</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section class="benefits">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Beneficios para tu Salud</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card animate-on-scroll">
+            <span class="benefit-icon">❤️</span>
+            <h3>Corazón Saludable</h3>
+            <p>Rico en ácidos grasos monoinsaturados que ayudan a mantener niveles saludables de colesterol.</p>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <span class="benefit-icon">🛡️</span>
+            <h3>Antioxidante Natural</h3>
+            <p>Contiene polifenoles y vitamina E que combaten el envejecimiento celular.</p>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <span class="benefit-icon">🧠</span>
+            <h3>Salud Cerebral</h3>
+            <p>Contribuye a la función cognitiva y puede reducir el riesgo de enfermedades neurogenerativas.</p>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <span class="benefit-icon">✨</span>
+            <h3>Piel Radiante</h3>
+            <p>Hidrata y nutre la piel desde el interior, dejándola suave y luminosa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section class="faq">
       <div class="container border-top">
@@ -157,16 +259,127 @@
         <div class="faq-container">
           <div class="faq-item animate-on-scroll">
             <div class="faq-question">
-              <h3>¿Cuál es la diferencia entre el Aceite de Oliva Virgen y el Virgen Extra (AOVE)?</h3>
+              <h3>1. ¿Qué diferencia al Aceite Virgen del Virgen Extra (AOVE)?</h3>
               <div class="faq-icon"></div>
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                El <strong>AOVE</strong> es la máxima calidad, un puro zumo de
-                aceituna sin defectos y con acidez menor a 0,8º.
+                La diferencia es la calidad y la pureza. El <strong>AOVE</strong> es zumo puro sin defectos, con acidez menor a 0,8°. El Virgen puede tener defectos leves casi imperceptibles y una acidez de hasta 2°.
               </div>
             </div>
           </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>2. ¿Se puede cocinar y freír con AOVE?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>Sí</strong>. Es de las opciones más saludables porque resiste altas temperaturas (hasta 210°C) sin degradarse, gracias a sus antioxidantes. Además, crea una capa que protege los nutrientes del alimento.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>3. ¿El aceite de oliva caduca?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>No caduca</strong>, pero tiene fecha de consumo preferente. Tras 18 a 36 meses, empieza a perder sabor y aroma, aunque consumirlo después no es perjudicial para la salud.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>4. ¿Qué indica el grado de acidez?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Es un parámetro de calidad química, no de sabor. Una acidez baja (menor a 0,8° en AOVE) significa que la aceituna estaba sana y se procesó correctamente. <strong>No significa que el aceite sepa "ácido"</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>5. ¿Cómo debo conservarlo en casa?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Mantenlo en un lugar fresco (18-24°C), oscuro y bien cerrado. La luz, el calor y el aire son sus principales enemigos; usa <strong>envases opacos</strong> para evitar la oxidación.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>6. ¿El aceite de oliva engorda?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Como toda grasa, aporta unas 9 kcal por gramo, pero son <strong>grasas saludables</strong>. Estudios indican que el AOVE ayuda a mejorar la composición corporal y no se asocia al aumento de peso en dietas equilibradas.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>7. ¿Qué beneficios tiene para la salud?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Es rico en vitamina E, polifenoles y ácido oleico. Ayuda a reducir el colesterol "malo" (LDL), mejora la presión arterial, controla la glucosa y tiene efectos <strong>antiinflamatorios y antioxidantes</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>8. ¿Qué variedad elegir según mi gusto?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p><strong>Picual:</strong> Intenso y picante. Ideal para guisos y frituras.</p>
+                <p><strong>Arbequina:</strong> Dulce y frutado. Perfecto para ensaladas y repostería.</p>
+                <p><strong>Hojiblanca:</strong> Equilibrado y herbáceo. Versátil para cremas y aliños.</p>
+                <p><strong>Cornicabra:</strong> Robusto y aromático. Excelente para asados.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>9. ¿Es bueno para la piel?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>Sí</strong>, es un hidratante y reparador natural rico en vitaminas A, D, E y K. Es ideal para pieles secas o como desmaquillante, pero no se recomienda en pieles con tendencia al acné.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-question">
+              <h3>10. ¿Cómo reconozco un aceite de calidad?</h3>
+              <div class="faq-icon"></div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Busca la etiqueta <strong>"Virgen Extra"</strong>. Prioriza aquellos con Denominación de Origen (D.O.), indicación de "extracción en frío", fecha de cosecha reciente y variedad de aceituna especificada.
+              </div>
+            </div>
+          </div>
+
           </div>
       </div>
     </section>
@@ -174,7 +387,10 @@
     <footer>
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo">Olivery</div>
+          <div class="footer-logo">
+            <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C50 0 90 40 90 70 A40 40 0 1 1 10 70 C10 40 50 0 50 0 Z" fill="url(#dropGradient)"/></svg></span>livery
+          </div>
+
           <p>&copy; 2026 Olivery Boutique de Aceites. Todos los derechos reservados.</p>
         </div>
       </div>
