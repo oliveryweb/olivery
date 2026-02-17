@@ -4,32 +4,32 @@ const productsData = {
     title: "Aceite Tupelí Extra Virgen x 250 ml",
     image: "tupeli-250.png",
     description: [
-      "El Aceite Tupelí es un orgullo de San Juan, originado en las fértiles tierras de la zona de 25 de Mayo.",
-      "Esta marca nace de una tradición familiar que prioriza la excelencia en el cultivo de olivos bajo el sol andino.",
-      "Utiliza principalmente variedades de aceituna Arauco y Arbequina, logrando un blend de sabor equilibrado y persistente.",
-      "Su procedencia en el Valle del Tulum le otorga notas minerales únicas, gracias al riego con agua pura de deshielo.",
-      "El cuidadoso proceso de extracción en frío permite que el aceite mantenga todas sus propiedades nutricionales y antioxidantes.",
-      "Visualmente, se distingue por su tono verde intenso con destellos dorados, característico de frutos cosechados en su punto óptimo.",
-      "En nariz, desprende aromas a pasto recién cortado y notas frutales que resaltan la frescura de su origen regional.",
-      "Su perfil gustativo lo hace el compañero perfecto para quesos maduros, ensaladas gourmet o platos de pastas mediterráneas.",
-      "El envase de vidrio oscuro de 250 cm3 garantiza la máxima protección contra la luz para conservar su integridad sensorial.",
-      "Elegir Tupelí es asegurar la presencia de un producto premium de nuestra región en cada una de tus comidas diarias.",
+      "Producido por GAMA S.R.L., empresa familiar fundada en 1949 por Julio Marún en San Juan, Argentina.",
+      "Elaborado con aceitunas frescas seleccionadas de la ladera sureste del Cerro Villicum, en el corazón del Valle del Tulum.",
+      "Este Aceite de Oliva Extra Virgen premium destaca por su equilibrio perfecto entre notas frutales y un toque herbáceo.",
+      "Presenta aromas a aceituna madura con un perfil sensorial armonioso que refleja la herencia de más de 70 años.",
+      "Su sabor posee un amargor y picor ligeros en grado medio, característicos de frutos procesados en su punto óptimo.",
+      "Garantiza una bajísima acidez y una alta concentración de polifenoles naturales gracias a su cuidadosa extracción.",
+      "Es el compañero ideal para ensaladas mediterráneas, quesos de pasta dura y para finalizar platos de carnes o pastas.",
+      "La pureza de Tupelí es el resultado de un compromiso inquebrantable con la calidad y la trazabilidad en origen.",
+      "Cada botella transporta la esencia del sol sanjuanino y la tradición de una de las marcas más emblemáticas de la región.",
+      "Su Establecimiento cuenta con el Museo Don Julio, donde se preserva la historia viva de la olivicultura nacional.",
     ],
   },
   2: {
     title: "Aceite La Nobleza Virgen x 250 ml",
     image: "LaNobleza-250.png",
     description: [
-      "El Aceite Virgen La Nobleza es una propuesta clásica de San Juan, originada en las tierras productivas de 25 de Mayo.",
-      "Esta línea de producción busca acercar la tradición olivarera regional a los consumidores que valoran la honestidad del sabor.",
-      "Se elabora con una selección de aceitunas Arauco y Manzanilla, típicas del Valle del Tulum, que le brindan su carácter único.",
-      "El método de obtención asegura un aceite virgen que preserva la frescura de los frutos recolectados en su punto justo de madurez.",
-      "Visualmente, destaca por su tono amarillo dorado con reflejos tenues, ideal para realzar el aspecto visual de cualquier receta casera.",
-      "Su perfil sensorial se caracteriza por notas suaves de oliva madura, siendo una opción equilibrada y amigable para el paladar familiar.",
-      "Es reconocido por su gran versatilidad, funcionando perfectamente tanto en salteados rápidos como en aliños para ensaladas diarias.",
-      "La calidad de su materia prima garantiza un aporte saludable de nutrientes esenciales para mantener una dieta equilibrada y natural.",
-      "Se presenta en un envase PET de 250 cm³, un formato ligero y resistente que facilita su uso constante y seguro en la cocina.",
-      "Elegir La Nobleza es apostar por un producto genuino de nuestra industria que equilibra calidad y practicidad en cada comida.",
+      "El Aceite La Nobleza es una propuesta virgen de gran pureza, distribuida por Tupelí Agroalimentos en San Juan.",
+      "Se distingue por ser un aceite profundamente sensorial, con una fragancia característica a aceituna madura.",
+      "A diferencia de otros aceites más intensos, La Nobleza destaca por su ausencia de sensaciones de picor o amargor.",
+      "Ofrece una experiencia en boca extremadamente suave, armoniosa y equilibrada, ideal para paladares delicados.",
+      "Es un producto genuino de la región de San Juan, que captura la esencia del clima árido y el sol andino de la provincia.",
+      "Su perfil 'frutado maduro' lo convierte en un ingrediente versátil para la cocina diaria y la mesa gourmet.",
+      "Recomendado por expertos para enriquecer el sabor de ensaladas frescas, pizzas caseras y platos de pastas suaves.",
+      "Su textura sedosa y sabor noble permiten potenciar los ingredientes originales del plato sin opacarlos.",
+      "Es la elección predilecta de quienes buscan la salud del aceite de oliva con un toque suave y simplemente delicioso.",
+      "Se presenta como un aceite honesto que lleva la tradición sanjuanina a los consumidores que valoran la fineza.",
     ],
   },
   3: {
@@ -124,12 +124,92 @@ const productsData = {
   },
 };
 
-// DOM Elements cleanup
+// DOM Elements
+const modal = document.getElementById("productModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.querySelector(".close-modal");
 const productCards = document.querySelectorAll(".product-card");
 
+// Modal structure creation if not exists (defensive)
+if (!modal && !document.getElementById("productModal")) {
+  const modalHTML = `
+    <div class="modal" id="productModal" aria-hidden="true" role="dialog">
+      <div class="modal-content">
+        <span class="close-modal" aria-label="Cerrar modal">&times;</span>
+        <div class="modal-body">
+          <div class="modal-image" id="modalImage"></div>
+          <div class="modal-text">
+            <h2 id="modalTitle"></h2>
+            <div class="modal-description" id="modalDescription"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+}
+
+// Re-fetch elements after potential creation
+const activeModal = document.getElementById("productModal");
+const activeClose = document.querySelector(".close-modal");
+
+// Open modal function
+function openModal(product) {
+  const mTitle = document.getElementById("modalTitle");
+  const mDesc = document.getElementById("modalDescription");
+  const mImg = document.getElementById("modalImage");
+
+  mTitle.textContent = product.title;
+  mImg.innerHTML = product.image
+    ? `<img src="${product.image}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: contain;">`
+    : `<div class="image-placeholder"><span>${product.title}</span></div>`;
+
+  mDesc.innerHTML = "";
+  product.description.forEach((line) => {
+    const p = document.createElement("p");
+    p.textContent = line;
+    mDesc.appendChild(p);
+  });
+
+  activeModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModalFunction() {
+  activeModal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// Event Listeners
+productCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const productId = card.getAttribute("data-product");
+    const product = productsData[productId];
+    if (product) openModal(product);
+  });
+});
+
+activeClose?.addEventListener("click", closeModalFunction);
+activeModal?.addEventListener("click", (e) => {
+  if (e.target === activeModal) closeModalFunction();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModalFunction();
+});
+
 // Observe all elements with animate-on-scroll class
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.1 });
+
 document.querySelectorAll(".animate-on-scroll").forEach((el, index) => {
-  el.style.transitionDelay = `${index * 0.1}s`;
+  el.style.transitionDelay = `${index * 0.05}s`;
+  observer.observe(el);
 });
 
 
