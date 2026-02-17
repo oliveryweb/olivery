@@ -26,7 +26,18 @@
     />
   </head>
   <body>
+    <!-- Gradiente para la gota EXACTO al logo -->
+    <svg width="0" height="0" style="position:absolute; visibility: hidden;" aria-hidden="true">
+      <defs>
+        <linearGradient id="dropGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#b5bc5e;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#8e9b48;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+    </svg>
+
     <header class="main-header">
+
       <div class="scroll-progress"></div>
       <div class="container header-container">
 
@@ -68,15 +79,6 @@
         <h1 class="animate-on-scroll">
           <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5C50 5 85 45 85 72A35 35 0 1 1 15 72C15 45 50 5 50 5Z" fill="url(#dropGradient)"/></svg></span>livery
         </h1>
-        <!-- Gradiente para la gota EXACTO al logo -->
-        <svg width="0" height="0" style="position:absolute">
-          <defs>
-            <linearGradient id="dropGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#b5bc5e;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#8e9b48;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-        </svg>
 
 
         <p class="subtitle animate-on-scroll">
@@ -393,7 +395,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
-            <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C50 0 90 40 90 70 A40 40 0 1 1 10 70 C10 40 50 0 50 0 Z" fill="url(#dropGradient)"/></svg></span>livery
+            <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5C50 5 85 45 85 72A35 35 0 1 1 15 72C15 45 50 5 50 5Z" fill="url(#dropGradient)"/></svg></span>livery
           </div>
           <p>&copy; 2026 Olivery Boutique de Aceites. Todos los derechos reservados.</p>
         </div>
