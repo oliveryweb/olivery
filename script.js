@@ -1,125 +1,125 @@
 // Product data with 10-line descriptions
 const productsData = {
   1: {
-    title: "Aceite Tupelí Extra Virgen x 250 cm3",
+    title: "Aceite Tupelí Extra Virgen x 250 ml",
     image: "tupeli-250.png",
     description: [
-      "Nuestro Aceite Tupelí Extra Virgen x 250 cm3 representa la excelencia en cada gota, cuidadosamente extraído de las aceitunas más selectas de nuestros olivares centenarios.",
-      "El proceso de extracción en frío garantiza la conservación de todos los nutrientes y antioxidantes naturales que hacen único a este producto.",
-      "Cada botella contiene el resultado de una cosecha manual realizada en el momento óptimo de maduración de las frutas.",
-      "Su color verde intenso con reflejos dorados anticipa un sabor complejo y equilibrado que deleitará los paladares más exigentes.",
-      "En nariz presenta notas de hierba fresca, tomate verde y un ligero toque de almendra que evocan los campos de olivos mediterráneos.",
-      "En boca es untuoso y aterciopelado, con un amargo y picor perfectamente equilibrados que perduran en un final elegante.",
-      "Ideal para aderezar ensaladas de hojas verdes, carpaccios de pescado o simplemente disfrutar con pan recién horneado.",
-      "Su alta concentración de ácido oleico y polifenoles lo convierten en un aliado excepcional para la salud cardiovascular.",
-      "Presentado en botellas de vidrio oscuro de 250 cm3 que preservan todas sus propiedades organolépticas durante el tiempo.",
-      "Un producto gourmet que transformará cualquier plato sencillo en una experiencia culinaria memorable.",
+      "El Aceite Tupelí es un orgullo de San Juan, originado en las fértiles tierras de la zona de 25 de Mayo.",
+      "Esta marca nace de una tradición familiar que prioriza la excelencia en el cultivo de olivos bajo el sol andino.",
+      "Utiliza principalmente variedades de aceituna Arauco y Arbequina, logrando un blend de sabor equilibrado y persistente.",
+      "Su procedencia en el Valle del Tulum le otorga notas minerales únicas, gracias al riego con agua pura de deshielo.",
+      "El cuidadoso proceso de extracción en frío permite que el aceite mantenga todas sus propiedades nutricionales y antioxidantes.",
+      "Visualmente, se distingue por su tono verde intenso con destellos dorados, característico de frutos cosechados en su punto óptimo.",
+      "En nariz, desprende aromas a pasto recién cortado y notas frutales que resaltan la frescura de su origen regional.",
+      "Su perfil gustativo lo hace el compañero perfecto para quesos maduros, ensaladas gourmet o platos de pastas mediterráneas.",
+      "El envase de vidrio oscuro de 250 cm3 garantiza la máxima protección contra la luz para conservar su integridad sensorial.",
+      "Elegir Tupelí es asegurar la presencia de un producto premium de nuestra región en cada una de tus comidas diarias.",
     ],
   },
   2: {
-    title: "Aceite La Nobleza Virgen x 250 cm3",
+    title: "Aceite La Nobleza Virgen x 250 ml",
     image: "LaNobleza-250.png",
     description: [
-      "El Aceite La Nobleza Virgen es el resultado de un proceso de prensado puramente mecánico, sin intervención de procesos químicos.",
-      "Esta variedad destaca por su carácter noble y equilibrado, manteniendo la esencia natural de las aceitunas de nuestra finca.",
-      "Se caracteriza por un aroma sutil a aceitunas maduras y hierba fresca, ideal para quienes buscan un sabor auténtico pero no invasivo.",
-      "Su perfil de sabor es suave y amable en el paladar, lo que lo convierte en el aliado perfecto para la cocina diaria.",
-      "Es excepcionalmente versátil, funcionando tanto en crudo para ensaladas como para realzar el sabor de guisos y preparaciones al horno.",
-      "Gracias a su extracción artesanal, conserva una rica composición de ácidos grasos monoinsaturados beneficiosos para el corazón.",
-      "Presenta un color dorado con matices verdosos que reflejan su pureza y origen natural en cada botella.",
-      "La Nobleza representa la tradición olivarera en su estado más puro, premiando la paciencia y el respeto por los tiempos de la naturaleza.",
-      "Su presentación en envase de 250 cm3 permite disfrutar de su frescura óptima, protegiendo sus propiedades del paso del tiempo.",
-      "Un aceite de calidad virgen que no puede faltar en la mesa de quienes aprecian la honestidad de un producto bien elaborado.",
+      "El Aceite Virgen La Nobleza es una propuesta clásica de San Juan, originada en las tierras productivas de 25 de Mayo.",
+      "Esta línea de producción busca acercar la tradición olivarera regional a los consumidores que valoran la honestidad del sabor.",
+      "Se elabora con una selección de aceitunas Arauco y Manzanilla, típicas del Valle del Tulum, que le brindan su carácter único.",
+      "El método de obtención asegura un aceite virgen que preserva la frescura de los frutos recolectados en su punto justo de madurez.",
+      "Visualmente, destaca por su tono amarillo dorado con reflejos tenues, ideal para realzar el aspecto visual de cualquier receta casera.",
+      "Su perfil sensorial se caracteriza por notas suaves de oliva madura, siendo una opción equilibrada y amigable para el paladar familiar.",
+      "Es reconocido por su gran versatilidad, funcionando perfectamente tanto en salteados rápidos como en aliños para ensaladas diarias.",
+      "La calidad de su materia prima garantiza un aporte saludable de nutrientes esenciales para mantener una dieta equilibrada y natural.",
+      "Se presenta en un envase PET de 250 cm³, un formato ligero y resistente que facilita su uso constante y seguro en la cocina.",
+      "Elegir La Nobleza es apostar por un producto genuino de nuestra industria que equilibra calidad y practicidad en cada comida.",
     ],
   },
   3: {
     title: "Aceite Tradicional",
     description: [
-      "El Aceite Tradicional encapsula siglos de historia familiar, elaborado con la misma pasión y dedicación de nuestros antepasados.",
-      "Esta receta centenaria ha permanecido inalterable desde 1890, cuando nuestro bisabado fundó la almazara familiar.",
-      "Utilizamos variedades autóctonas de aceitunas que han resistido el paso del tiempo manteniendo su carácter único.",
-      "El molino de piedra tradicional, preservado con esmero, confiere a este aceite una personalidad inconfundible.",
-      "Su elaboración artesanal limita la producción a pequeños lotes que garantizan la máxima calidad en cada envase.",
-      "En aroma descubrimos reminiscencias de frutos secos, plátano maduro y un característico fondo de madera noble.",
-      "El sabor es redondo y aterciopelado, con una dulzura natural que contrasta suavemente con notas amargas elegantes.",
-      "Es el compañero perfecto para platos de cuchara, guisos tradicionales y recetas que han alimentado familias durante generaciones.",
-      "Conservamos métodos de prensado en frío que, aunque lentos, preservan la esencia auténtica de nuestra tierra.",
-      "Al probarlo, se evoca la nostalgia de las cocinas de antaño donde el aceite era el alma de cada preparación.",
+      "Nuestra etiqueta Tradicional ha sido seleccionada para representar los sabores más clásicos y queridos de la cultura olivícola.",
+      "Es un aceite que evoca la historia y las recetas familiares, elegido por su consistencia y su perfil aromático inconfundible.",
+      "Destaca por sus notas de frutos secos y un dulce natural que lo hace apto para todo tipo de paladares, desde niños a expertos.",
+      "En Olivery buscamos marcas que preserven métodos como el molino de piedra, y esta opción es el mejor ejemplo de esa herencia.",
+      "Su sabor es redondo y aterciopelado, convirtiéndolo en el acompañante ideal para platos de legumbres y guisos clásicos.",
+      "Es el aceite que recomendamos para quienes desean volver a las bases del sabor puro y reconfortante de la cocina de antaño.",
+      "Cada partida que recibimos es testeada para asegurar que mantiene esa personalidad robusta que tanto valoran nuestros clientes.",
+      "Se elabora en pequeños lotes, lo que nos permite ofrecer un producto siempre fresco y con una calidad controlada al detalle.",
+      "Ideal para aderezar pan recién horneado o para crear una base sabrosa en cualquier sofrito tradicional.",
+      "Un clásico de nuestra selección que nunca falla en aportar el alma necesaria a cada preparación culinaria.",
     ],
   },
   4: {
     title: "Aceite Reserva",
     description: [
-      "La Aceite Reserva es nuestra joya de la corona, una edición limitada que solo se produce en años excepcionales de cosecha.",
-      "Cada botella está numerada y firmada, convirtiéndose en un objeto de colección para los amantes del buen aceite.",
-      "Seleccionamos exclusivamente aceitunas de nuestros olivos más veteranos, algunos con más de 200 años de historia.",
-      "La producción se limita a mil litros anuales, haciendo de este producto una verdadera rareza en el mercado.",
-      "Su complejidad aromática despliega capas de tomate seco, hierbas silvestres, trufa blanca y un sutil toque mineral.",
-      "En boca es extraordinariamente denso y persistente, con una estructura que evoluciona durante varios minutos.",
-      "El diseño del envase ha sido creado por artesanos vidrieros, convirtiendo cada botella en una pieza de arte única.",
-      "Ideal para regalar en ocasiones especiales o para guardar como tesoro en la despensa de los verdaderos gourmets.",
-      "Incluye certificado de autenticidad y notas de cata elaboradas por nuestro maestro de almazara.",
-      "Es la expresión máxima de nuestro saber hacer, reservada para quienes aprecian los placeres más exclusivos de la vida.",
+      "El Aceite Reserva es nuestra joya de la corona, una etiqueta exclusiva que seleccionamos solo en temporadas de cosechas excepcionales.",
+      "Representa la máxima expresión de la calidad que buscamos en Olivery, con botellas limitadas y numeradas para los más exigentes.",
+      "Proviene de producciones limitadas de árboles centenarios, lo que confiere al aceite una densidad y complejidad únicas.",
+      "Su abanico aromático incluye notas de tomate seco, hierbas silvestres y un sutil fondo mineral difícil de encontrar en otras marcas.",
+      "Es un producto de culto en nuestra boutique, reservado para momentos especiales y maridajes de alta gama.",
+      "Su envase ha sido diseñado con una estética premium que refleja la exclusividad del contenido, ideal para regalos corporativos.",
+      "En boca es largo y persistente, evolucionando con el tiempo y dejando un recuerdo elegante que invita a seguir degustando.",
+      "Recomendamos su uso exclusivamente en frío para no perder ni un ápice de su compleja estructura molecular y aromática.",
+      "Incluye una nota de cata detallada elaborada por nuestros expertos, guiándote a través de todas sus facetas sensoriales.",
+      "Una inversión en sabor y salud que sitúa a tu mesa en el escalafón más alto de la gastronomía mundial.",
     ],
   },
   5: {
     title: "Aceite Aromático",
     description: [
-      "El Aceite Aromático es una innovadora creación que fusiona nuestro mejor aceite con infusiones naturales de hierbas aromáticas.",
-      "Cada variedad macera durante semanas con especias seleccionadas que aportan personalidad sin overpower el aceite base.",
-      "Disponible en tres versiones: Romero y Tomillo, Albahaca y Limón, o Guindilla y Ajo, para todos los gustos.",
-      "El proceso de maceración se realiza a temperatura controlada para preservar tanto el aceite como las hierbas.",
-      "El resultado es un condimento versátil que aporta profundidad de sabor con solo unas gotas en cualquier preparación.",
-      "Perfecto para marinar carnes, aromatizar pastas, realzar pizzas caseras o crear vinagretas memorables.",
-      "Los aromas son intensos y frescos, transportando directamente a un jardín mediterráneo en pleno verano.",
-      "Cada botella contiene ramitas visibles de las hierbas utilizadas, demostrando la autenticidad del producto.",
-      "Un regalo ideal para entusiastas de la cocina que disfrutan experimentando con nuevos sabores.",
-      "Transforma platos cotidianos en experiencias gastronómicas sorprendentes con mínimo esfuerzo.",
+      "Nuestra línea de Aceites Aromáticos nace de la búsqueda de las mejores fusiones entre oliva premium y botánicos naturales.",
+      "Seleccionamos marcas que utilicen solo ingredientes reales para sus infusiones, evitando cualquier tipo de aromatizante artificial.",
+      "Disponibles en variedades como Romero y Tomillo, Albahaca y Limón o Ajo y Guindilla, cada uno con una personalidad definida.",
+      "Son la herramienta definitiva en nuestra tienda para quienes desean transformar un plato simple en algo extraordinario con un solo gesto.",
+      "EL proceso de maceración lenta que exigen estos aceites garantiza que el sabor se integre de manera profunda y elegante.",
+      "Excelentes para marinar carnes rojas, aromatizar pizzas caseras o darle un giro creativo a tus ensaladas mediterráneas.",
+      "En cada botella podrás apreciar los elementos naturales utilizados, asegurando la transparencia y calidad del producto.",
+      "Son muy valorados en nuestra boutique como regalos originales para amigos y familiares que aman cocinar y experimentar.",
+      "Su base de aceite de oliva virgen extra de alta calidad asegura que el aporte nutricional siga siendo el protagonista.",
+      "Una explosión de frescura y creatividad que no puede faltar en la cocina de un verdadero entusiasta del buen comer.",
     ],
   },
   6: {
     title: "Aceite Suave",
     description: [
-      "El Aceite Suave ha sido especialmente diseñado para quienes prefieren un sabor delicado sin renunciar a la calidad premium.",
-      "Su elaboración combina aceitunas en diferentes estados de maduración para lograr un perfil organoléptico equilibrado y amable.",
-      "Presenta un punto de humo elevado que lo hace ideal para todo tipo de cocciones, desde salteados hasta frituras.",
-      "El sabor neutro no compite con los ingredientes del plato, realzándolos sutilmente desde el fondo.",
-      "Es perfecto para repostería saludable, sustituyendo mantequilla en bizcochos y galletas con resultados excepcionales.",
-      "Los niños lo aceptan fácilmente, convirtiéndose en una excelente forma de incorporar grasas saludables a su dieta.",
-      "Su textura ligera no deja sensación grasienta en el paladar, facilitando su uso en múltiples preparaciones.",
-      "Conserva todas las propiedades beneficiosas del aceite de oliva aunque su sabor sea más discreto.",
-      "El envase práctico incluye dosificador que permite controlar perfectamente la cantidad utilizada.",
-      "Es el aliado indispensable en cualquier cocina que valore la versatilidad sin sacrificar la salud.",
+      "El Aceite Suave de nuestra selección es la respuesta perfecta para quienes priorizan la funcionalidad sin sacrificar la calidad.",
+      "Elegimos esta marca por su balance extraordinario, permitiendo que el aceite sea un vehículo de cocción sin opacar el sabor del plato.",
+      "Es ideal para la repostería fina, donde se busca la humedad y salud del aceite de oliva pero con una presencia aromática discreta.",
+      "Presenta un alto punto de humo, lo que lo convierte en un aliado seguro para salteados y frituras gourmets en tu cocina.",
+      "Su textura es ligera y fluida, evitando sensaciones pesadas en el paladar una vez terminada la comida.",
+      "Es la opción preferida por familias con niños en nuestra tienda, ya que su sabor amable facilita su aceptación por los más pequeños.",
+      "Aunque es más sutil en sabor, mantiene todos los ácidos grasos saludables que esperas de un aceite de oliva de primer nivel.",
+      "Viene con un práctico dosificador que hemos testeado para asegurar un uso eficiente y preciso en cada preparación.",
+      "Recomendado por nuestros expertos como el aceite 'base' que todo hogar debería tener para su operativa diaria.",
+      "Versatilidad y pureza se unen para ofrecerte un producto confiable en cada paso de tus recetas cotidianas.",
     ],
   },
   7: {
     title: "Aceite Intenso",
     description: [
-      "El Aceite Intenso es para valientes, con un carácter fuerte y personal que marca la diferencia en cada plato.",
-      "Utilizamos exclusivamente aceitunas recogidas en su momento de maduración más temprano, cuando los polifenoles están en su máximo esplendor.",
-      "Su color verde profundo casi oscuro anticipa la intensidad de sabores que despliega al contacto con el paladar.",
-      "El picor es pronunciado pero elegante, dejando una sensación cálida que perdura gratamente en la garganta.",
-      "Las notas amargas de alcachofa y cardo son el sello distintivo de este aceite de carácter inconfundible.",
-      "Es el compañero ideal para platos robustos: carnes rojas a la parrilla, legumbres de cuchara o quesos curados potentes.",
-      "Unas gotas sobre una pizza recién salida del horno la elevan a categoría de obra maestra culinaria.",
-      "Su alto contenido en antioxidantes naturales lo convierte en uno de los aceites más saludables del mercado.",
-      "Recomendado para paladares experimentados que buscan emociones fuertes en cada experiencia gastronómica.",
-      "Cada botella contiene la esencia concentrada de la fuerza y el carácter de nuestra tierra mediterránea.",
+      "Para los paladares que buscan emociones fuertes, hemos seleccionado este Aceite Intenso de carácter indomable y robusto.",
+      "Proveniente de cosechas tempranas donde el polifenol está en su pico máximo, ofreciendo un sabor potente y vivaz.",
+      "Destaca por un amargor y picor elegantes que marcan el ritmo de cualquier plato al que se le añada.",
+      "En nuestra tienda lo recomendamos especialmente para carnes rojas a la brasa, quesos curados o pastas con salsas de tomate potentes.",
+      "Su color es un verde profundo que ya nos habla de su concentración y de la fuerza de la tierra de donde proviene.",
+      "Es una marca elegida por su valentía en el perfil sensorial, ideal para quienes no temen que el aceite sea el protagonista.",
+      "Sus notas de alcachofa y cardo proporcionan una profundidad de sabor que se aprecia mejor al terminar el plato.",
+      "Es uno de los aceites más saludables de nuestra boutique debido a su altísima concentración de antioxidantes naturales.",
+      "Una experiencia sensorial completa que desafía los sentidos y eleva el concepto del aceite de oliva a nivel de condimento estrella.",
+      "Cada botella es testimonio de la potencia que puede alcanzar una aceituna cuando se selecciona con criterio de excelencia.",
     ],
   },
   8: {
     title: "Aceite Delicado",
     description: [
-      "El Aceite Delicado es poesía líquida, creado especialmente para realzar las preparaciones más sutiles y refinadas.",
-      "Se obtiene de la segunda prensada de las aceitunas más suaves, logrando un perfil fluido y casi etéreo.",
-      "Su dulzura natural lo hace perfecto para ensaladas de hojas tiernas donde debe brillar la frescura de los ingredientes.",
-      "Es el aliado indispensable de los pescados blancos, mariscos y carpaccios que requieren un toque sutil.",
-      "En nariz despliega aromas de manzana madura, plátano y flores blancas que anuncian su carácter delicado.",
-      "En boca es sedoso y redondo, con una agradable untuosidad que envuelve sin agredir las papilas gustativas.",
-      "Funciona maravillosamente como base para mayonesas ligeras o salsas holandesas de textura aterciopelada.",
-      "Su presentación en botella de cristal transparente permite admirar su color dorado pálido y luminoso.",
-      "Ideal para quienes se inician en el mundo del aceite de oliva y prefieren comenzar con perfiles suaves.",
-      "Demuestra que la delicadeza puede coexistir con la excelencia, ofreciendo una experiencia gastronómica refinada.",
+      "El Aceite Delicado es la opción más etérea y refinada de nuestra colección, seleccionado por su sutileza poética.",
+      "Se obtiene de variedades que ofrecen un perfil fluido y luminoso, ideal para realzar ingredientes de sabores muy tenues.",
+      "Es el compañero indispensable para pescados blancos, mariscos y todas aquellas preparaciones 'crudo' que requieren suavidad.",
+      "En nariz ofrece notas de manzana y flores blancas, una fragancia elegante que anticipa su paso sedoso por la boca.",
+      "Lo hemos incluido en Olivery para aquellos clientes que buscan una experiencia gastronómica de alta precisión y fineza.",
+      "Su dulzura natural lo hace perfecto para equilibrar ensaladas con cítricos o para la confección de mayonesas clarificadas.",
+      "Presentado en botellas de cristal de diseño que permiten apreciar su color dorado pálido, es una pieza de lujo en tu mesa.",
+      "Incluso en su delicadeza, este aceite cumple con todos los estándares de excelencia y pureza que exigimos en nuestra boutique.",
+      "Ideal para quienes se inician en la cata de aceites y prefieren perfiles menos agresivos pero igualmente complejos.",
+      "Una caricia al paladar que demuestra que en la cocina, a veces, lo más sutil es lo que más impacto genera.",
     ],
   },
 };
@@ -247,7 +247,47 @@ benefitCards.forEach((card) => {
   });
 });
 
+// FAQ Accordion logic
+const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach((item) => {
+  const question = item.querySelector(".faq-question");
+  question.addEventListener("click", () => {
+    // Optional: close other items before opening the current one
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item && otherItem.classList.contains("active")) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    item.classList.toggle("active");
+  });
+});
+
+// Re-observe elements if needed (the general observer already handles .animate-on-scroll)
+
 // Initialize: add staggered animation to product cards
 productCards.forEach((card, index) => {
   card.style.animationDelay = `${index * 0.1}s`;
+});
+// Theme Toggle Logic
+const themeToggle = document.getElementById("themeToggle");
+const themeText = document.getElementById("themeText");
+const body = document.body;
+
+function updateThemeText(isDark) {
+  themeText.textContent = isDark ? "MODO CLARO" : "MODO OSCURO";
+}
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  const isDark = savedTheme === "dark";
+  body.classList.toggle("dark-theme", isDark);
+  updateThemeText(isDark);
+}
+
+themeToggle.addEventListener("click", () => {
+  const isDark = body.classList.toggle("dark-theme");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  updateThemeText(isDark);
 });
