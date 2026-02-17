@@ -26,25 +26,30 @@
     />
   </head>
   <body>
-    <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
-      <div class="theme-icon-wrapper">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
+    <header class="main-header">
+      <div class="scroll-progress"></div>
+      <div class="container header-container">
+
+        <a href="#" class="header-logo">
+          <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5C50 5 85 45 85 72A35 35 0 1 1 15 72C15 45 50 5 50 5Z" fill="url(#dropGradient)"/></svg></span>livery
+        </a>
+        <nav class="nav-links">
+          <a href="#">Inicio</a>
+          <a href="#productos">Productos</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#consultas">Consultas</a>
+        </nav>
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-button">
+            <span id="themeText">MODO OSCURO</span>
+            <div class="theme-icon-wrapper">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"/></svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+          </button>
+        </div>
       </div>
-      <span id="themeText" class="theme-text">MODO OSCURO</span>
-    </button>
+    </header>
 
     <a href="https://wa.me/3512402359" class="whatsapp-button" target="_blank" rel="noopener">
       <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -224,7 +229,7 @@
       </div>
     </section>
 
-    <section class="benefits">
+    <section id="beneficios" class="benefits">
       <div class="container">
         <h2 class="section-title animate-on-scroll">Beneficios para tu Salud</h2>
         <div class="benefits-grid">
@@ -253,7 +258,7 @@
     </section>
 
 
-    <section class="faq">
+    <section id="consultas" class="faq">
       <div class="container border-top">
         <h2 class="section-title animate-on-scroll">Consultas Frecuentes</h2>
         <div class="faq-container">
@@ -390,28 +395,10 @@
           <div class="footer-logo">
             <span class="logo-o">O<svg class="drop-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C50 0 90 40 90 70 A40 40 0 1 1 10 70 C10 40 50 0 50 0 Z" fill="url(#dropGradient)"/></svg></span>livery
           </div>
-
           <p>&copy; 2026 Olivery Boutique de Aceites. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
-
-    <div class="modal" id="productModal" aria-hidden="true" role="dialog">
-      <div class="modal-content">
-        <span class="close-modal" aria-label="Cerrar modal">&times;</span>
-        <div class="modal-body">
-          <div class="modal-image">
-            <div class="image-placeholder" id="modalImage">
-              <span>Imagen Producto</span>
-            </div>
-          </div>
-          <div class="modal-text">
-            <h2 id="modalTitle">Título del Producto</h2>
-            <div class="modal-description" id="modalDescription"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="script.js"></script>
   </body>

@@ -124,151 +124,66 @@ const productsData = {
   },
 };
 
-// DOM Elements
-const modal = document.getElementById("productModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalImage = document.getElementById("modalImage");
-const closeModal = document.querySelector(".close-modal");
+// DOM Elements cleanup
 const productCards = document.querySelectorAll(".product-card");
-
-// Intersection Observer for scroll animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, observerOptions);
 
 // Observe all elements with animate-on-scroll class
 document.querySelectorAll(".animate-on-scroll").forEach((el, index) => {
   el.style.transitionDelay = `${index * 0.1}s`;
-  observer.observe(el);
 });
 
-// Product card click handlers
-productCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const productId = card.getAttribute("data-product");
-    const product = productsData[productId];
 
-    if (product) {
-      openModal(product);
-    }
-  });
-});
+// Header scroll and progress effect
+const header = document.querySelector(".main-header");
+const progressBar = document.querySelector(".scroll-progress");
 
-// Open modal function
-function openModal(product) {
-  modalTitle.textContent = product.title;
-
-  if (product.image) {
-    modalImage.innerHTML = `<img src="${product.image}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;">`;
+window.addEventListener("scroll", () => {
+  // Sticky header
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
   } else {
-    modalImage.innerHTML = `<span>${product.title}</span>`;
+    header.classList.remove("scrolled");
   }
 
-  // Clear previous content
-  modalDescription.innerHTML = "";
-
-  // Add each line as a paragraph
-  product.description.forEach((line) => {
-    const p = document.createElement("p");
-    p.textContent = line;
-    modalDescription.appendChild(p);
-  });
-
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-// Close modal function
-function closeModalFunction() {
-  modal.classList.remove("active");
-  document.body.style.overflow = "";
-}
-
-// Event listeners for closing modal
-closeModal.addEventListener("click", closeModalFunction);
-
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeModalFunction();
-  }
+  // Progress bar
+  const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (window.scrollY / windowHeight) * 100;
+  progressBar.style.width = `${scrolled}%`;
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.classList.contains("active")) {
-    closeModalFunction();
-  }
-});
 
-// Smooth scroll for anchor links
+// Smooth scroll for anchor links with offset
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
+    if (this.getAttribute("href") === "#") return;
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
         behavior: "smooth",
-        block: "start",
       });
     }
   });
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section refined
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
-  const hero = document.querySelector(".hero");
   const heroContent = document.querySelector(".hero-content");
 
-  if (hero && scrolled < window.innerHeight) {
-    heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
-    heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 0.8;
+  if (heroContent && scrolled < window.innerHeight) {
+    heroContent.style.transform = `translateY(${scrolled * 0.35}px)`;
+    heroContent.style.opacity = 1 - scrolled / (window.innerHeight * 0.8);
   }
 });
 
-// Add hover effect to benefit cards
-const benefitCards = document.querySelectorAll(".benefit-card");
-benefitCards.forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    card.style.transform = "translateY(-10px) scale(1.02)";
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "translateY(0) scale(1)";
-  });
-});
-
-// FAQ Accordion logic
-const faqItems = document.querySelectorAll(".faq-item");
-faqItems.forEach((item) => {
-  const question = item.querySelector(".faq-question");
-  question.addEventListener("click", () => {
-    // Optional: close other items before opening the current one
-    faqItems.forEach((otherItem) => {
-      if (otherItem !== item && otherItem.classList.contains("active")) {
-        otherItem.classList.remove("active");
-      }
-    });
-
-    item.classList.toggle("active");
-  });
-});
-
-// Re-observe elements if needed (the general observer already handles .animate-on-scroll)
-
-// Initialize: add staggered animation to product cards
-productCards.forEach((card, index) => {
-  card.style.animationDelay = `${index * 0.1}s`;
-});
 // Theme Toggle Logic
 const themeToggle = document.getElementById("themeToggle");
 const themeText = document.getElementById("themeText");
@@ -291,3 +206,34 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
   updateThemeText(isDark);
 });
+
+// Initial observer for reveal animations
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+  revealObserver.observe(el);
+});
+
+// FAQ Accordion logic
+const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach((item) => {
+  const question = item.querySelector(".faq-question");
+  question.addEventListener("click", () => {
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item && otherItem.classList.contains("active")) {
+        otherItem.classList.remove("active");
+      }
+    });
+    item.classList.toggle("active");
+  });
+});
+
