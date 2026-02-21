@@ -1184,6 +1184,319 @@ footer p {
   }
 }
 
+/* ================================================
+   CUADRO COMPARATIVO - Oliva vs Girasol
+   ================================================ */
+
+.comparativa {
+  padding: 100px 0 120px;
+  background: var(--cream-dark);
+  position: relative;
+}
+
+.comparativa::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.comparativa-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.comparativa-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #1e4a1e 100%);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparativa-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(139, 154, 70, 0.2) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 50%,
+      rgba(200, 161, 107, 0.15) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.comparativa-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+
+.comparativa-header p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+.comparativa-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparativa-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.comparativa-table thead tr {
+  background: var(--cream-dark);
+  border-bottom: 2px solid var(--border);
+}
+
+.comparativa-table th {
+  padding: 14px 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.col-etapa {
+  color: var(--text-muted);
+  width: 22%;
+}
+
+.col-oliva {
+  color: #2d6a2d;
+  background: rgba(34, 120, 34, 0.06);
+  width: 39%;
+}
+
+.col-girasol {
+  color: #8a6200;
+  background: rgba(200, 161, 60, 0.06);
+  width: 39%;
+}
+
+.col-oliva span,
+.col-girasol span {
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.8;
+}
+
+.comparativa-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.comparativa-table tbody tr:hover .etapa-cell {
+  background: rgba(139, 154, 70, 0.05);
+}
+
+.comparativa-table tbody tr:hover .oliva-cell {
+  background: rgba(34, 120, 34, 0.07);
+}
+
+.comparativa-table tbody tr:hover .girasol-cell {
+  background: rgba(200, 161, 60, 0.09);
+}
+
+.etapa-cell {
+  padding: 14px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.etapa-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.oliva-cell,
+.girasol-cell {
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.oliva-cell {
+  background: rgba(34, 120, 34, 0.04);
+}
+
+.girasol-cell {
+  background: rgba(200, 161, 60, 0.04);
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.dot-green {
+  background: #3ca43c;
+}
+
+.dot-yellow {
+  background: #d4a017;
+}
+
+/* Dark theme adjustments */
+body.dark-theme .col-oliva {
+  color: #7ecf7e;
+  background: rgba(34, 120, 34, 0.1);
+}
+
+body.dark-theme .col-girasol {
+  color: #e5c56a;
+  background: rgba(200, 161, 60, 0.1);
+}
+
+body.dark-theme .oliva-cell {
+  background: rgba(34, 120, 34, 0.08);
+}
+
+body.dark-theme .girasol-cell {
+  background: rgba(200, 161, 60, 0.08);
+}
+
+body.dark-theme .comparativa-header h2 {
+  color: #fff;
+}
+
+/* Conclusiones */
+.comparativa-conclusiones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 28px 28px 32px;
+  background: var(--cream-dark);
+  border-top: 1px solid var(--border);
+}
+
+.conclusion-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  transition: var(--transition-fast);
+}
+
+.conclusion-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.conclusion-oliva {
+  border-left: 3px solid #3ca43c;
+}
+
+.conclusion-girasol {
+  border-left: 3px solid #d4a017;
+}
+
+.conclusion-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.conclusion-oliva h3 {
+  color: #2d6a2d;
+}
+
+.conclusion-girasol h3 {
+  color: #8a6200;
+}
+
+body.dark-theme .conclusion-oliva h3 {
+  color: #7ecf7e;
+}
+
+body.dark-theme .conclusion-girasol h3 {
+  color: #e5c56a;
+}
+
+.conclusion-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comparativa-conclusiones {
+    grid-template-columns: 1fr;
+  }
+  .comparativa-table-wrap {
+    border-radius: 0;
+  }
+  .comparativa-header {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .comparativa {
+    padding: 60px 0 80px;
+  }
+  .etapa-cell {
+    white-space: normal;
+    padding: 12px 14px;
+    gap: 6px;
+  }
+  .oliva-cell,
+  .girasol-cell {
+    padding: 12px 14px;
+    font-size: 0.82rem;
+  }
+  .comparativa-conclusiones {
+    padding: 20px 16px 24px;
+    gap: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
