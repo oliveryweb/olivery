@@ -252,7 +252,7 @@ function confirmPurchase() {
   }
 
   // Format WhatsApp message
-  const message = `🛍️ *NUEVA COMPRA EN OLIVERY*%0A%0A` +
+  const whatsappMessage = `🛍️ *NUEVA COMPRA EN OLIVERY*%0A%0A` +
     `*Producto:* ${currentCheckoutProduct.title}%0A` +
     `*Cantidad:* ${qty}%0A` +
     `*Total:* $${total.toLocaleString("es-AR")}%0A%0A` +
@@ -267,14 +267,15 @@ function confirmPurchase() {
   const emailBody = `Resumen del Pedido:\n\n` +
     `Producto: ${currentCheckoutProduct.title}\n` +
     `Cantidad: ${qty}\n` +
-    `Celular: ${phone}\n` +
+    `Monto a Pagar: $${total.toLocaleString("es-AR")}\n\n` +
+    `📌 Alias Mercado Pago: olivery.cba\n\n` +
     `Cliente: ${name}\n` +
-    `Día de Entrega: ${day}\n` +
-    `Monto: $${total.toLocaleString("es-AR")}`;
+    `Celular: ${phone}\n` +
+    `Día de Entrega: ${day}`;
 
   // URLs
   const myNumber = "3512402359";
-  const whatsappUrl = `https://wa.me/${myNumber}?text=${message}`;
+  const whatsappUrl = `https://wa.me/${myNumber}?text=${whatsappMessage}`;
   const mailtoUrl = `mailto:oliveryweb@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
   // Launch WhatsApp
