@@ -3,6 +3,7 @@ const productsData = {
   1: {
     title: "Aceite Tupelí Extra Virgen x 250 ml",
     image: "tupeli-250.png",
+    price: 8900,
     description: [
       "Producido por GAMA S.R.L., empresa familiar fundada en 1949 por Julio Marún en San Juan, Argentina.",
       "Elaborado con aceitunas frescas seleccionadas de la ladera sureste del Cerro Villicum, en el corazón del Valle del Tulum.",
@@ -19,6 +20,7 @@ const productsData = {
   2: {
     title: "Aceite La Nobleza Virgen x 250 ml",
     image: "LaNobleza-250.png",
+    price: 7000,
     description: [
       "El Aceite La Nobleza es una propuesta virgen de gran pureza, distribuida por Tupelí Agroalimentos en San Juan.",
       "Se distingue por ser un aceite profundamente sensorial, con una fragancia característica a aceituna madura.",
@@ -35,6 +37,7 @@ const productsData = {
   3: {
     title: "Aceite Oliovita Mediterráneo Virgen Extra x 250 ml",
     image: "oliovita-mediterraneo.png",
+    price: 6700,
     description: [
       "Producido por Solfrut en los valles de San Juan, líder en producción olivícola de alta gama en Argentina.",
       "El blend Mediterráneo es una creación exclusiva inspirada en el perfil sensorial de los aceites europeos clásicos.",
@@ -51,6 +54,7 @@ const productsData = {
   4: {
     title: "Aceite Oliovita Clásico Virgen Extra x 250 ml",
     image: "oliovita-clasico.png",
+    price: 7300,
     description: [
       "El Oliovita Clásico es el estándar de excelencia de Solfrut, producido en la provincia de San Juan, Argentina.",
       "Es un Aceite de Oliva Virgen Extra (AOVE) de tipo blend, diseñado para ofrecer un perfil de sabor constante y armonioso.",
@@ -67,6 +71,7 @@ const productsData = {
   5: {
     title: "Aceite Laur Virgen Extra x 250 ml",
     image: "laur.png",
+    price: 10900,
     description: [
       "Laur es la olivícola número 1 del mundo según el EVOO World Ranking por tres años consecutivos.",
       "Este Virgen Extra Clásico se produce en Maipú, Mendoza, continuando una tradición iniciada en 1889.",
@@ -83,6 +88,7 @@ const productsData = {
   6: {
     title: "Aceite Zuelo Virgen Extra Original x 250 ml",
     image: "zuelo-original.png",
+    price: 11700,
     description: [
       "Zuelo es el proyecto olivícola de la prestigiosa Familia Zuccardi, con origen en Maipú, Mendoza.",
       "La versión Original es un blend equilibrado de variedades seleccionadas, como Arbequina, Picual y Coratina.",
@@ -92,13 +98,14 @@ const productsData = {
       "Es un aceite de gran personalidad que refleja fielmente el terruño mendocino y la pasión de la familia.",
       "Ideal para aderezar ensaladas de hojas amargas, pastas con vegetales o para finalizar carnes a la parrilla.",
       "El envase de vidrio de 250 ml preserva la complejidad aromática y protege el aceite de la oxidación.",
-      "Viene equipado con un pico dosificador de alta precisión para un control total durante el servicio.",
+      "Viene equipado con un pico dosificador de alta precisión para un servicio grueso y un control total del goteo.",
       "Zuelo Original es garantía de un aceite virgen extra de clase mundial, nacido de la excelencia vitivinícola.",
     ],
   },
   7: {
     title: "Aceto Balsámico Oliovita Reducción x 250 ml",
     image: "oliovita.png",
+    price: 4800,
     description: [
       "El Aceto Balsámico Oliovita Reducción es un aderezo premium elaborado por Solfrut en San Juan.",
       "Se caracteriza por su textura espesa y untuosa, lograda mediante un proceso de reducción lenta.",
@@ -115,6 +122,7 @@ const productsData = {
   8: {
     title: "Aceto Balsámico Clásico Casalta x 400 ml",
     image: "casalta.png",
+    price: 4800,
     description: [
       "Casalta es la marca líder de Porta Hermanos, empresa cordobesa con más de 140 años de historia.",
       "Este Aceto Balsámico Clásico destaca por su acidez intensa y equilibrada, al estilo de Modena.",
@@ -182,6 +190,110 @@ function openModal(product) {
   document.body.style.overflow = "hidden";
 }
 
+// === CHECKOUT FLOW ===
+let currentCheckoutProduct = null;
+
+function openCheckout(productId) {
+  const product = productsData[productId];
+  if (!product) return;
+
+  currentCheckoutProduct = { ...product, id: productId };
+
+  const checkoutModal = document.getElementById("checkoutModal");
+  const checkoutTitle = document.getElementById("checkoutProductTitle");
+  const qtyInput = document.getElementById("checkoutQty");
+
+  checkoutTitle.textContent = product.title;
+  qtyInput.value = 1;
+  
+  // Reset form fields
+  const phoneInput = document.getElementById("checkoutPhone");
+  const nameInput = document.getElementById("checkoutName");
+  const daySelect = document.getElementById("checkoutDay");
+  
+  if (phoneInput) phoneInput.value = "";
+  if (nameInput) nameInput.value = "";
+  if (daySelect) daySelect.selectedIndex = 0;
+
+  updateTotalPrice();
+
+  // Reset view to step 1
+  document.getElementById("checkoutStep1").style.display = "block";
+  document.getElementById("checkoutStep2").style.display = "none";
+
+  checkoutModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function updateTotalPrice() {
+  if (!currentCheckoutProduct) return;
+  const qty = parseInt(document.getElementById("checkoutQty").value) || 1;
+  const total = currentCheckoutProduct.price * qty;
+  const priceBtn = document.getElementById("checkoutTotalPrice");
+  if (priceBtn) {
+    priceBtn.textContent = `PAGAR TOTAL: $ ${total.toLocaleString("es-AR")}`;
+  }
+}
+
+function confirmPurchase() {
+  const qty = parseInt(document.getElementById("checkoutQty").value) || 1;
+  const phone = document.getElementById("checkoutPhone").value || "No especificado";
+  const name = document.getElementById("checkoutName").value || "No especificado";
+  const day = document.getElementById("checkoutDay").value || "No especificado";
+  const total = currentCheckoutProduct.price * qty;
+
+  // Update UI to Step 2
+  document.getElementById("checkoutStep1").style.display = "none";
+  document.getElementById("checkoutStep2").style.display = "block";
+
+  const confirmTotal = document.getElementById("confirmTotal");
+  if (confirmTotal) {
+    confirmTotal.textContent = `$ ${total.toLocaleString("es-AR")}`;
+  }
+
+  // Format WhatsApp message
+  const message = `🛍️ *NUEVA COMPRA EN OLIVERY*%0A%0A` +
+    `*Producto:* ${currentCheckoutProduct.title}%0A` +
+    `*Cantidad:* ${qty}%0A` +
+    `*Total:* $${total.toLocaleString("es-AR")}%0A%0A` +
+    `👤 *Cliente:* ${name}%0A` +
+    `📱 *Celular:* ${phone}%0A` +
+    `🚚 *Día de Entrega:* ${day}%0A%0A` +
+    `_A la espera de confirmación de transferencia._`;
+
+  // Format Email content
+  const emailSubject = `PEDIDO DE ${name.toUpperCase()}`;
+  const emailBody = `Resumen del Pedido:\n\n` +
+    `Producto: ${currentCheckoutProduct.title}\n` +
+    `Cantidad: ${qty}\n` +
+    `Celular: ${phone}\n` +
+    `Cliente: ${name}\n` +
+    `Día de Entrega: ${day}\n` +
+    `Monto: $${total.toLocaleString("es-AR")}`;
+
+  // URLs
+  const myNumber = "5493512402359";
+  const whatsappUrl = `https://wa.me/${myNumber}?text=${message}`;
+  const mailtoUrl = `mailto:oliveryweb@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  // Open both (Browser might block multiple popups, but usually allows if triggered by click)
+  window.open(whatsappUrl, "_blank");
+  
+  // Launch email client
+  setTimeout(() => {
+    window.location.href = mailtoUrl;
+  }, 500);
+}
+
+function closeCheckoutModal() {
+  const checkoutModal = document.getElementById("checkoutModal");
+  if (checkoutModal) {
+    checkoutModal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+// =====================
+
 function closeModalFunction() {
   activeModal.classList.remove("active");
   document.body.style.overflow = "";
@@ -189,12 +301,41 @@ function closeModalFunction() {
 
 // Event Listeners
 productCards.forEach((card) => {
-  card.addEventListener("click", () => {
+  card.addEventListener("click", (e) => {
+    // Check if clicked the WhatsApp button specifically
+    if (e.target.closest(".buy-wa-btn")) {
+      e.stopPropagation();
+      const productId = card.getAttribute("data-product");
+      openCheckout(productId);
+      return;
+    }
+
+    // Default modal detail
     const productId = card.getAttribute("data-product");
     const product = productsData[productId];
     if (product) openModal(product);
   });
 });
+
+// Checkout specific listeners
+document.addEventListener("click", (e) => {
+  if (e.target.id === "confirmPurchaseBtn") {
+    confirmPurchase();
+  }
+  if (e.target.id === "checkoutClose" || e.target.id === "checkoutModal") {
+    closeCheckoutModal();
+  }
+});
+
+const qtyInput = document.getElementById("checkoutQty");
+if (qtyInput) {
+  qtyInput.addEventListener("input", updateTotalPrice);
+  qtyInput.addEventListener("change", () => {
+    let val = parseInt(qtyInput.value);
+    if (isNaN(val) || val < 1) qtyInput.value = 1;
+    updateTotalPrice();
+  });
+}
 
 activeClose?.addEventListener("click", closeModalFunction);
 activeModal?.addEventListener("click", (e) => {
@@ -212,7 +353,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
 );
 
 document.querySelectorAll(".animate-on-scroll").forEach((el, index) => {
@@ -220,14 +361,13 @@ document.querySelectorAll(".animate-on-scroll").forEach((el, index) => {
   observer.observe(el);
 });
 
-
 const header = document.querySelector(".main-header");
 const progressBar = document.querySelector(".scroll-progress");
 let ticking = false;
 
 function updateOnScroll() {
   const scrollY = window.scrollY;
-  
+
   if (scrollY > 50) {
     header.classList.add("scrolled");
   } else {
@@ -247,13 +387,16 @@ function updateOnScroll() {
   ticking = false;
 }
 
-window.addEventListener("scroll", () => {
-  if (!ticking) {
-    requestAnimationFrame(updateOnScroll);
-    ticking = true;
-  }
-}, { passive: true });
-
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      requestAnimationFrame(updateOnScroll);
+      ticking = true;
+    }
+  },
+  { passive: true },
+);
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -265,7 +408,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     if (targetElement) {
       const headerOffset = 80;
       const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
