@@ -272,17 +272,17 @@ function confirmPurchase() {
     `Monto: $${total.toLocaleString("es-AR")}`;
 
   // URLs
-  const myNumber = "5493512402359";
+  const myNumber = "3512402359";
   const whatsappUrl = `https://wa.me/${myNumber}?text=${message}`;
   const mailtoUrl = `mailto:oliveryweb@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-  // Open both (Browser might block multiple popups, but usually allows if triggered by click)
+  // Launch WhatsApp
   window.open(whatsappUrl, "_blank");
   
   // Launch email client
   setTimeout(() => {
     window.location.href = mailtoUrl;
-  }, 500);
+  }, 800);
 }
 
 function closeCheckoutModal() {
