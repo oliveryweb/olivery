@@ -256,6 +256,7 @@ function confirmPurchase() {
     `*Producto:* ${currentCheckoutProduct.title}%0A` +
     `*Cantidad:* ${qty}%0A` +
     `*Total:* $${total.toLocaleString("es-AR")}%0A%0A` +
+    `🔹 *Alias Mercado Pago:* olivery.cba%0A%0A` +
     `👤 *Cliente:* ${name}%0A` +
     `📱 *Celular:* ${phone}%0A` +
     `🚚 *Día de Entrega:* ${day}%0A%0A` +
