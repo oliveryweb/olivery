@@ -19,22 +19,33 @@
   --text-light: #839184;
   --heading: #122115;
   --card-bg: rgba(255, 255, 255, 0.65); /* Glassmorphism base */
-  
+
   --container-max: 1300px;
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 32px;
   --radius-xl: 48px;
-  
+
   /* Skeuomorphic Shadows - Inner & Outer for 3D depth */
-  --shadow-xs: 2px 2px 8px rgba(30, 58, 36, 0.08), -2px -2px 8px rgba(255, 255, 255, 0.8);
-  --shadow-sm: 4px 4px 16px rgba(30, 58, 36, 0.1), -4px -4px 16px rgba(255, 255, 255, 0.8);
-  --shadow-md: 6px 6px 24px rgba(30, 58, 36, 0.12), -6px -6px 24px rgba(255, 255, 255, 0.9);
-  --shadow-lg: 10px 10px 32px rgba(30, 58, 36, 0.15), -10px -10px 32px rgba(255, 255, 255, 1);
-  --shadow-xl: 16px 16px 48px rgba(30, 58, 36, 0.2), -10px -10px 48px rgba(255, 255, 255, 0.9);
-  --shadow-emboss: inset 2px 2px 4px rgba(255, 255, 255, 0.8), inset -2px -2px 6px rgba(30, 58, 36, 0.1);
-  --shadow-deboss: inset 3px 3px 6px rgba(30, 58, 36, 0.15), inset -3px -3px 6px rgba(255, 255, 255, 0.9);
-  
+  --shadow-xs:
+    2px 2px 8px rgba(30, 58, 36, 0.08), -2px -2px 8px rgba(255, 255, 255, 0.8);
+  --shadow-sm:
+    4px 4px 16px rgba(30, 58, 36, 0.1), -4px -4px 16px rgba(255, 255, 255, 0.8);
+  --shadow-md:
+    6px 6px 24px rgba(30, 58, 36, 0.12), -6px -6px 24px rgba(255, 255, 255, 0.9);
+  --shadow-lg:
+    10px 10px 32px rgba(30, 58, 36, 0.15),
+    -10px -10px 32px rgba(255, 255, 255, 1);
+  --shadow-xl:
+    16px 16px 48px rgba(30, 58, 36, 0.2),
+    -10px -10px 48px rgba(255, 255, 255, 0.9);
+  --shadow-emboss:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 6px rgba(30, 58, 36, 0.1);
+  --shadow-deboss:
+    inset 3px 3px 6px rgba(30, 58, 36, 0.15),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+
   --border: rgba(30, 58, 36, 0.08);
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -55,14 +66,23 @@ body.dark-theme {
   --heading: #e5cc80;
   --card-bg: rgba(30, 42, 33, 0.7);
   --border: rgba(255, 255, 255, 0.06);
-  
-  --shadow-xs: 2px 2px 8px rgba(0, 0, 0, 0.4), -1px -1px 4px rgba(255, 255, 255, 0.05);
-  --shadow-sm: 4px 4px 16px rgba(0, 0, 0, 0.5), -2px -2px 8px rgba(255, 255, 255, 0.05);
-  --shadow-md: 6px 6px 24px rgba(0, 0, 0, 0.6), -3px -3px 12px rgba(255, 255, 255, 0.04);
-  --shadow-lg: 10px 10px 32px rgba(0, 0, 0, 0.7), -4px -4px 16px rgba(255, 255, 255, 0.03);
-  --shadow-xl: 16px 16px 48px rgba(0, 0, 0, 0.8), -5px -5px 20px rgba(255, 255, 255, 0.02);
-  --shadow-emboss: inset 1px 1px 2px rgba(255, 255, 255, 0.1), inset -2px -2px 6px rgba(0, 0, 0, 0.5);
-  --shadow-deboss: inset 3px 3px 6px rgba(0, 0, 0, 0.6), inset -1px -1px 2px rgba(255, 255, 255, 0.05);
+
+  --shadow-xs:
+    2px 2px 8px rgba(0, 0, 0, 0.4), -1px -1px 4px rgba(255, 255, 255, 0.05);
+  --shadow-sm:
+    4px 4px 16px rgba(0, 0, 0, 0.5), -2px -2px 8px rgba(255, 255, 255, 0.05);
+  --shadow-md:
+    6px 6px 24px rgba(0, 0, 0, 0.6), -3px -3px 12px rgba(255, 255, 255, 0.04);
+  --shadow-lg:
+    10px 10px 32px rgba(0, 0, 0, 0.7), -4px -4px 16px rgba(255, 255, 255, 0.03);
+  --shadow-xl:
+    16px 16px 48px rgba(0, 0, 0, 0.8), -5px -5px 20px rgba(255, 255, 255, 0.02);
+  --shadow-emboss:
+    inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+    inset -2px -2px 6px rgba(0, 0, 0, 0.5);
+  --shadow-deboss:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.6),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.05);
 }
 
 html {
@@ -160,7 +180,12 @@ body.dark-theme::before {
   left: 0;
   width: 0%;
   height: 2px;
-  background: linear-gradient(90deg, #cfab36, #efcc68, #b8942a); /* Gold scroll progress */
+  background: linear-gradient(
+    90deg,
+    #cfab36,
+    #efcc68,
+    #b8942a
+  ); /* Gold scroll progress */
   z-index: 2001;
   transition: width 0.1s ease;
 }
@@ -411,6 +436,7 @@ body.dark-theme .moon-icon {
   color: var(--text-muted);
   font-size: clamp(0.95rem, 1.3vw, 1.05rem);
   line-height: 1.8;
+  text-wrap: balance;
 }
 
 .cta-button {
@@ -420,8 +446,8 @@ body.dark-theme .moon-icon {
   padding: 18px 40px;
   background: linear-gradient(
     135deg,
-    #cfab36 0%,  /* Gold Metallic */
-    #efcc68 50%, 
+    #cfab36 0%,
+    /* Gold Metallic */ #efcc68 50%,
     #b8942a 100%
   );
   color: #1a2a1b; /* Dark text for contrast against gold */
@@ -431,11 +457,11 @@ body.dark-theme .moon-icon {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  box-shadow: 
+  box-shadow:
     0 8px 24px rgba(212, 175, 55, 0.4),
     inset 0 2px 4px rgba(255, 255, 255, 0.6),
     inset 0 -2px 4px rgba(138, 107, 10, 0.4);
-  text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
   transition: var(--transition-fast);
   position: relative;
   overflow: hidden;
@@ -460,7 +486,7 @@ body.dark-theme .moon-icon {
 
 .cta-button:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 12px 32px rgba(212, 175, 55, 0.5),
     inset 0 2px 6px rgba(255, 255, 255, 0.8),
     inset 0 -2px 6px rgba(138, 107, 10, 0.5);
@@ -628,7 +654,9 @@ body.dark-theme .product-card::before {
 
 .product-card:hover {
   transform: translateY(-12px);
-  box-shadow: var(--shadow-lg), 0 20px 40px rgba(212, 175, 55, 0.1);
+  box-shadow:
+    var(--shadow-lg),
+    0 20px 40px rgba(212, 175, 55, 0.1);
   border-color: rgba(212, 175, 55, 0.5); /* Gold hover border */
 }
 
@@ -688,7 +716,7 @@ body.dark-theme .product-card::before {
   letter-spacing: 0.1em;
   transform: translateY(20px);
   transition: var(--transition);
-  box-shadow: 
+  box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.15),
     inset 0 2px 4px rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -697,7 +725,7 @@ body.dark-theme .product-card::before {
 .product-card:hover .view-more {
   transform: translateY(0);
   background: white;
-  box-shadow: 
+  box-shadow:
     0 12px 32px rgba(212, 175, 55, 0.2),
     inset 0 2px 4px rgba(255, 255, 255, 1);
   color: #1a3a1a;
@@ -794,7 +822,7 @@ body.dark-theme .product-card::before {
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.2),
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
@@ -819,7 +847,7 @@ body.dark-theme .product-card::before {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-8px);
   border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.3),
     inset 0 1px 4px rgba(255, 255, 255, 0.3);
 }
@@ -1117,7 +1145,10 @@ footer p {
 .modal-image::after {
   content: "";
   position: absolute;
-  top: 10px; left: 10px; right: 10px; bottom: 10px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
   border: 1px solid rgba(212, 175, 55, 0.2);
   pointer-events: none;
 }
@@ -1207,6 +1238,12 @@ footer p {
 
   .hero {
     padding: 100px 16px 60px;
+  }
+
+  .hero .description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 100%;
   }
 
   .hero h1 {
@@ -1603,7 +1640,7 @@ body.dark-theme .conclusion-girasol h3 {
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: 
+  box-shadow:
     0 4px 12px rgba(37, 211, 102, 0.2),
     inset 0 2px 4px rgba(255, 255, 255, 0.4);
 }
@@ -1611,7 +1648,7 @@ body.dark-theme .conclusion-girasol h3 {
 .buy-wa-btn:hover {
   background: linear-gradient(135deg, #20bd5a 0%, #075e54 100%);
   transform: translateY(-2px);
-  box-shadow: 
+  box-shadow:
     0 6px 16px rgba(37, 211, 102, 0.3),
     inset 0 2px 4px rgba(255, 255, 255, 0.5);
 }
