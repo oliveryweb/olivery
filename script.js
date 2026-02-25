@@ -136,6 +136,57 @@ const productsData = {
       "Un clásico indispensable en los hogares argentinos que valoran la tradición industrial y el buen sabor.",
     ],
   },
+  9: {
+    title: "Aceite Familia Zuccardi Coratina x 250 ml",
+    image: "coratina_final.png",
+    price: 11400,
+    description: [
+      "El Aceite Coratina es el varietal más intenso de la línea Aceites Varietales de la Familia Zuccardi, elaborado en Maipú, Mendoza.",
+      "La variedad Coratina, originaria de la región italiana de Puglia, alcanza en el terruño mendocino su máxima expresión aromática.",
+      "En nariz, presenta un aroma complejo e inconfundible: notas a tallo verde, nuez fresca y cáscara de banana.",
+      "Pueden aparecer también matices tostados y un sugestivo toque a café que enriquecen su perfil sensorial único.",
+      "En boca, exhibe una destacada y persistente intensidad de amargos, rasgo característico de las aceitunas Coratina en su punto óptimo.",
+      "Su marcado y prolongado picor al final del paladar es señal inconfundible de su altísima concentración de polifenoles naturales.",
+      "Es uno de los aceites con mayor estabilidad oxidativa del mercado, lo que garantiza una vida útil y frescura excepcionales.",
+      "Ideal para platos de carácter: pastas con ragú, carnes rojas a la parrilla, bruschetta, quesos curados y guisos.",
+      "El envase de vidrio de 250 ml con pico dosificador antigoteo preserva intacta su complejidad aromática y protege el aceite de la luz.",
+      "Elegir el Coratina Zuccardi es apostar por un AOVE de clase mundial, con carácter propio y una historia familiar centenaria.",
+    ],
+  },
+  10: {
+    title: "Aceite Familia Zuccardi Genovesa x 250 ml",
+    image: "genovesa_final.png",
+    price: 11400,
+    description: [
+      "El Aceite Genovesa es el varietal más delicado y complejo de la línea Aceites Varietales de la Familia Zuccardi, elaborado en Mendoza.",
+      "La variedad Genovesa es una cultivar de origen italiano adaptada con maestría al excepcional terruño de los Valles Mendocinos.",
+      "En nariz, despliega un frutado de intensidad media, elegante y refinado, con notas limpias y muy características.",
+      "Su aroma principal evoca a hierbas frescas y manzana verde, con la frescura propia de aceitunas cosechadas en su punto ideal.",
+      "En ocasiones, el perfil aromático se enriquece con notas más maduras, como suaves toques de frutos rojos que lo hacen único.",
+      "En boca, es un aceite profundamente equilibrado, que evita extremos de amargor o picor para priorizar la armonía de sabores.",
+      "Su frutado resulta complejo y persistente en el paladar, revelando capas de sabor que se desarrollan lentamente con cada sorbo.",
+      "Es la elección perfecta para quienes buscan un AOVE fino y versátil: ensaladas de hojas verdes, pescados y carpaccios.",
+      "El envase de vidrio de 250 ml con pico dosificador antigoteo garantiza la protección de su delicado perfil aromático.",
+      "Elegir el Genovesa Zuccardi es incorporar a tu mesa la fineza de un varietal único, con la firma de una familia centenaria.",
+    ],
+  },
+  11: {
+    title: "Aceite Familia Zuccardi Picual x 250 ml",
+    image: "picual_final.png",
+    price: 11400,
+    description: [
+      "El Aceite Picual es el varietal más aromático y versátil de la línea Aceites Varietales de la Familia Zuccardi, elaborado en Mendoza.",
+      "La variedad Picual, la más cultivada del mundo y reina indiscutida de la olivicultura española, encuentra en Mendoza su mejor expresión.",
+      "Su perfil aromático varía según el punto de cosecha, ofreciendo notas herbáceas, hoja de tomate y manzana fresca cuando es temprana.",
+      "En cosechas más anticipadas, aparecen elegantes notas a higuera que aportan una complejidad vegetal y fresca muy particular.",
+      "En puntos de madurez más tardíos, el perfil evoluciona hacia toques de hoja de ruda, agregando profundidad y carácter al aceite.",
+      "En boca, su frutado es normalmente intenso y sabroso, con un amargor y picante medios que garantizan presencia sin agresividad.",
+      "Es considerado uno de los aceites con mayor estabilidad y resistencia a la oxidación, ideal para la cocina y el uso en crudo.",
+      "Su perfil intenso lo convierte en el acompañante ideal de guisos, asados, tostadas con tomate y aliños de ensaladas.",
+      "El envase de vidrio de 250 ml con pico dosificador antigoteo preserve intacta su riqueza aromática y protege el aceite de la luz.",
+      "Elegir el Picual Zuccardi es llevar a tu mesa la variedad más conocida del mundo con el sello de calidad de una familia centenaria.",
+    ],
+  },
 };
 
 // DOM Elements
@@ -205,12 +256,12 @@ function openCheckout(productId) {
 
   checkoutTitle.textContent = product.title;
   qtyInput.value = 1;
-  
+
   // Reset form fields
   const phoneInput = document.getElementById("checkoutPhone");
   const nameInput = document.getElementById("checkoutName");
   const daySelect = document.getElementById("checkoutDay");
-  
+
   if (phoneInput) phoneInput.value = "";
   if (nameInput) nameInput.value = "";
   if (daySelect) daySelect.selectedIndex = 0;
@@ -237,8 +288,10 @@ function updateTotalPrice() {
 
 function confirmPurchase() {
   const qty = parseInt(document.getElementById("checkoutQty").value) || 1;
-  const phone = document.getElementById("checkoutPhone").value || "No especificado";
-  const name = document.getElementById("checkoutName").value || "No especificado";
+  const phone =
+    document.getElementById("checkoutPhone").value || "No especificado";
+  const name =
+    document.getElementById("checkoutName").value || "No especificado";
   const day = document.getElementById("checkoutDay").value || "No especificado";
   const total = currentCheckoutProduct.price * qty;
 
@@ -252,7 +305,8 @@ function confirmPurchase() {
   }
 
   // Format WhatsApp message
-  const whatsappMessage = `🛍️ *NUEVA COMPRA EN OLIVERY*%0A%0A` +
+  const whatsappMessage =
+    `🛍️ *NUEVA COMPRA EN OLIVERY*%0A%0A` +
     `*Producto:* ${currentCheckoutProduct.title}%0A` +
     `*Cantidad:* ${qty}%0A` +
     `*Total:* $${total.toLocaleString("es-AR")}%0A%0A` +
@@ -264,7 +318,8 @@ function confirmPurchase() {
 
   // Format Email content
   const emailSubject = `PEDIDO DE ${name.toUpperCase()}`;
-  const emailBody = `Resumen del Pedido:\n\n` +
+  const emailBody =
+    `Resumen del Pedido:\n\n` +
     `Producto: ${currentCheckoutProduct.title}\n` +
     `Cantidad: ${qty}\n` +
     `Monto a Pagar: $${total.toLocaleString("es-AR")}\n\n` +
@@ -280,7 +335,7 @@ function confirmPurchase() {
 
   // Launch WhatsApp
   window.open(whatsappUrl, "_blank");
-  
+
   // Launch email client
   setTimeout(() => {
     window.location.href = mailtoUrl;
