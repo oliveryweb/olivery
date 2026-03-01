@@ -17,23 +17,6 @@ const productsData = {
       "Su Establecimiento cuenta con el Museo Don Julio, donde se preserva la historia viva de la olivicultura nacional.",
     ],
   },
-  2: {
-    title: "Aceite La Nobleza Virgen x 250 ml",
-    image: "LaNobleza-250.png",
-    price: 7000,
-    description: [
-      "El Aceite La Nobleza es una propuesta virgen de gran pureza, distribuida por Tupelí Agroalimentos en San Juan.",
-      "Se distingue por ser un aceite profundamente sensorial, con una fragancia característica a aceituna madura.",
-      "A diferencia de otros aceites más intensos, La Nobleza destaca por su ausencia de sensaciones de picor o amargor.",
-      "Ofrece una experiencia en boca extremadamente suave, armoniosa y equilibrada, ideal para paladares delicados.",
-      "Es un producto genuino de la región de San Juan, que captura la esencia del clima árido y el sol andino de la provincia.",
-      "Su perfil 'frutado maduro' lo convierte en un ingrediente versátil para la cocina diaria y la mesa gourmet.",
-      "Recomendado por expertos para enriquecer el sabor de ensaladas frescas, pizzas caseras y platos de pastas suaves.",
-      "Su textura sedosa y sabor noble permiten potenciar los ingredientes originales del plato sin opacarlos.",
-      "Es la elección predilecta de quienes buscan la salud del aceite de oliva con un toque suave y simplemente delicioso.",
-      "Se presenta como un aceite honesto que lleva la tradición sanjuanina a los consumidores que valoran la fineza.",
-    ],
-  },
   3: {
     title: "Aceite Oliovita Mediterráneo Virgen Extra x 250 ml",
     image: "oliovita-mediterraneo.png",
