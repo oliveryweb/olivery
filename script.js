@@ -170,6 +170,40 @@ const productsData = {
       "Elegir el Picual Zuccardi es llevar a tu mesa la variedad más conocida del mundo con el sello de calidad de una familia centenaria.",
     ],
   },
+  12: {
+    title: "Aceite Zuelo Virgen Extra Blend Original x 500 ml",
+    image: "zuelo-500.png",
+    price: 17600,
+    description: [
+      "Zuelo es el prestigioso proyecto olivícola de la Familia Zuccardi, nacido en Maipú, Mendoza.",
+      "La versión Original es un blend equilibrado de variedades meticulosamente seleccionadas, entre ellas Arbequina, Picual y Coratina.",
+      "Se distingue por una frescura inigualable, fruto de un proceso de extracción inmediata posterior a la recolección.",
+      "En nariz, ofrece notas herbáceas intensas, acompañadas de fragancias muy singulares a banana verde y pasto recién cortado.",
+      "Su perfil de sabor es rico y frutado, presentando un amargor medio sutil y un regusto picante que resulta sumamente agradable.",
+      "Se trata de un aceite con gran carácter, que refleja la autenticidad del terruño mendocino y la pasión constante de la familia.",
+      "Resulta el acompañante ideal para aderezar generosas ensaladas, pastas con vegetales o para potenciar carnes asadas.",
+      "Su presentación de 500 ml es perfecta para quienes buscan el mayor rendimiento sin sacrificar calidad.",
+      "El envase de vidrio cuenta con un práctico pico dosificador que brinda precisión y comodidad al momento de servir.",
+      "Zuelo Original de 500 ml asegura un aceite virgen extra de nivel superior para el uso cotidiano en los mejores platos.",
+    ],
+  },
+  13: {
+    title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml",
+    image: "hilal.png",
+    price: 11800,
+    description: [
+      'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
+      "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
+      "Resulta de una mezcla equilibrada de cuatro distinguidas variedades de aceitunas: Arbequina, Arauco, Frantoio y Manzanilla.",
+      "Dentro de su perfil de sabor, se destaca especialmente por su suavidad inigualable al paladar.",
+      "Logra una combinación perfecta donde el picor y el amargor son sutiles, realzando el sabor de las comidas sin invadirlas.",
+      "La extracción se obtiene mediante primera presión en frío, lo que garantiza la pureza y la máxima calidad del aceite.",
+      'La cosecha se realiza de forma manual utilizando el tradicional método de "ordeño", cuidando el fruto desde el origen.',
+      "Su proceso de elaboración cuenta con molienda fina en molino de piedra y un cuidadoso decantado completamente natural.",
+      "No recibe agentes químicos ni tratamientos industriales agresivos que puedan alterar o comprometer su composición original.",
+      "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor.",
+    ],
+  },
 };
 
 // DOM Elements
