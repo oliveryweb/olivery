@@ -204,6 +204,40 @@ const productsData = {
       "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor.",
     ],
   },
+  14: {
+    title: "Aceite Tupelí Extra Virgen x 500 ml",
+    image: "tupeli-500.png",
+    price: 14700,
+    description: [
+      "Producido por GAMA S.R.L., empresa familiar fundada en 1949 por Julio Marún en San Juan, Argentina.",
+      "Elaborado con aceitunas frescas seleccionadas de la ladera sureste del Cerro Villicum, en el corazón del Valle del Tulum.",
+      "Este Aceite de Oliva Extra Virgen premium destaca por su equilibrio perfecto entre notas frutales y un toque herbáceo.",
+      "Presenta aromas a aceituna madura con un perfil sensorial armonioso que refleja la herencia de más de 70 años.",
+      "Su sabor posee un amargor y picor ligeros en grado medio, característicos de frutos procesados en su punto óptimo.",
+      "Garantiza una bajísima acidez y una alta concentración de polifenoles naturales gracias a su cuidadosa extracción.",
+      "Es el compañero ideal para ensaladas mediterráneas, quesos de pasta dura y para finalizar platos de carnes o pastas.",
+      "La pureza de Tupelí es el resultado de un compromiso inquebrantable con la calidad y la trazabilidad en origen.",
+      "Cada botella de 500 ml transporta la esencia del sol sanjuanino y la tradición de una de las marcas más emblemáticas de la región.",
+      "Su Establecimiento cuenta con el Museo Don Julio, donde se preserva la historia viva de la olivicultura nacional.",
+    ],
+  },
+  15: {
+    title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml",
+    image: "hilal-55-v.png",
+    price: 14700,
+    description: [
+      'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
+      "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
+      "Resulta de una mezcla equilibrada de cuatro distinguidas variedades de aceitunas: Arbequina, Arauco, Frantoio y Manzanilla.",
+      "Dentro de su perfil de sabor, se destaca especialmente por su suavidad inigualable al paladar.",
+      "Logra una combinación perfecta donde el picor y el amargor son sutiles, realzando el sabor de las comidas sin invadirlas.",
+      "La extracción se obtiene mediante primera presión en frío, lo que garantiza la pureza y la máxima calidad del aceite.",
+      'La cosecha se realiza de forma manual utilizando el tradicional método de "ordeño", cuidando el fruto desde el origen.',
+      "Su proceso de elaboración cuenta con molienda fina en molino de piedra y un cuidadoso decantado completamente natural.",
+      "Esta presentación en un elegante envase de vidrio con pico dosificador protege y facilita el uso de tu aceite.",
+      "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor.",
+    ],
+  },
 };
 
 // DOM Elements
