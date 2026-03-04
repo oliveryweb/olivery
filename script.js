@@ -339,11 +339,19 @@ function updateTotalPrice() {
 
 function confirmPurchase() {
   const qty = parseInt(document.getElementById("checkoutQty").value) || 1;
-  const phone =
-    document.getElementById("checkoutPhone").value || "No especificado";
-  const name =
-    document.getElementById("checkoutName").value || "No especificado";
-  const day = document.getElementById("checkoutDay").value || "No especificado";
+  const phone = document.getElementById("checkoutPhone").value.trim();
+  const name = document.getElementById("checkoutName").value.trim();
+  const day = document.getElementById("checkoutDay").value;
+
+  if (!name || !phone || !day) {
+    const missing = [];
+    if (!name) missing.push("Nombre");
+    if (!phone) missing.push("Celular");
+    if (!day) missing.push("Día de entrega");
+    alert("Por favor completá: " + missing.join(", "));
+    return;
+  }
+
   const total = currentCheckoutProduct.price * qty;
 
   // Update UI to Step 2
@@ -450,7 +458,10 @@ activeModal?.addEventListener("click", (e) => {
   if (e.target === activeModal) closeModalFunction();
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModalFunction();
+  if (e.key === "Escape") {
+    closeModalFunction();
+    closeCheckoutModal();
+  }
 });
 
 const observer = new IntersectionObserver(
