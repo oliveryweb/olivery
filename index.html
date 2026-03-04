@@ -2117,7 +2117,7 @@ body.catalog-active .whatsapp-button { display:none !important }
   box-shadow:0 3px 10px rgba(30,58,36,.3);
 }
 .vs-btn:not(.active):hover { background:rgba(30,58,36,.06);color:var(--cat-primary) }
-@media(max-width:480px){
+@media(max-width:360px){
   .vs-btn span { display:none }
   .vs-btn { padding:8px 10px }
 }
@@ -2129,10 +2129,12 @@ body.catalog-active .whatsapp-button { display:none !important }
   min-height:100vh;
   display:flex;flex-direction:column;
   align-items:center;justify-content:flex-start;
-  padding:20px 16px 36px;
+  padding:20px 16px 80px;
   color:var(--cat-text);
   overflow-x:hidden;
   position:relative;
+  box-sizing:border-box;
+  width:100%;
 }
 #view-catalog::before {
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.2;
@@ -2187,6 +2189,8 @@ body.catalog-active .whatsapp-button { display:none !important }
 .book-scene {
   position:relative;z-index:1;perspective:2200px;
   width:100%;max-width:800px;transition:max-width .35s ease;
+  margin-left:auto;margin-right:auto;
+  display:block;
 }
 .book-scene.mobile-view { max-width:360px }
 .book-scene.mobile-view .page { grid-template-columns:1fr }
@@ -2510,8 +2514,8 @@ body.catalog-active .whatsapp-button { display:none !important }
 }
 
 @media(max-width:520px){
-  #view-catalog { padding:14px 10px 28px }
-  .book-scene { max-width:340px !important }
+  #view-catalog { padding:14px 10px 80px; align-items:center; }
+  .book-scene { max-width:340px !important; margin-left:auto !important; margin-right:auto !important; }
   .book { aspect-ratio:.75/1 !important }
   .book-spine { display:none !important }
   .view-toggle { display:none }
@@ -2522,6 +2526,29 @@ body.catalog-active .whatsapp-button { display:none !important }
   .wa-btn { font-size:.56rem;padding:5px 9px }
   .product-slot { padding:12px 10px;gap:5px }
 }
+
+/* ── Dark theme catalog ── */
+body.dark-theme #view-catalog {
+  background: linear-gradient(145deg,#141a15 0%,#1b2420 50%,#111710 100%);
+  color: #e1e9e2;
+}
+body.dark-theme #view-catalog::before { mix-blend-mode:overlay; opacity:.1; }
+body.dark-theme .catalog-header .header-brand { color: #9dc5a3; }
+body.dark-theme .catalog-header .header-year { color: #b2c262; }
+body.dark-theme .catalog-header .header-hint { color: #778a7a; }
+body.dark-theme .view-btn { background:rgba(157,197,163,.08); border-color:rgba(157,197,163,.18); color:#a6b5a8; }
+body.dark-theme .view-btn.active { background:#9dc5a3; color:#141a15; border-color:#9dc5a3; }
+body.dark-theme .page { background:#1e2a21; }
+body.dark-theme .product-slot { background:#1e2a21; }
+body.dark-theme .prod-name { color:#e1e9e2; }
+body.dark-theme .prod-tag { color:#b2c262; }
+body.dark-theme .prod-brief { color:#a6b5a8; }
+body.dark-theme .prod-price { color:#e5cc80; }
+body.dark-theme .prod-img-wrap { background:linear-gradient(160deg,rgba(30,58,36,.3),rgba(27,36,29,.4)); }
+body.dark-theme .nav-btn { background:rgba(30,42,33,.9); border-color:rgba(157,197,163,.18); color:#9dc5a3; }
+body.dark-theme .nav-btn:hover:not(:disabled) { background:#9dc5a3; color:#141a15; }
+body.dark-theme .page-indicator { color:#778a7a; }
+body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
 </style>
 </head>
 
@@ -2747,10 +2774,16 @@ body.catalog-active .whatsapp-button { display:none !important }
     </div>
     <div class="header-year">Catálogo de productos · Temporada 2026</div>
     <div class="header-hint">Deslice hacia la derecha para navegar por nuestros productos</div>
-    <button class="cat-back-to-site" onclick="switchView('original')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      Vista Deslizante
-    </button>
+    <div style="display:flex;gap:6px;justify-content:center;margin-top:12px;position:relative;z-index:1;">
+      <button onclick="switchView('original')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--cat-primary);color:#fff;border:none;border-radius:100px;font-family:var(--font-sans);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 3px 10px rgba(30,58,36,.3);transition:all .2s;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:13px;height:13px"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        Vista Deslizable
+      </button>
+      <button onclick="switchView('original')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(30,58,36,.08);color:var(--cat-primary);border:1.5px solid rgba(30,58,36,.18);border-radius:100px;font-family:var(--font-sans);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(30,58,36,.14)'" onmouseout="this.style.background='rgba(30,58,36,.08)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:13px;height:13px"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="10" rx="1"/><rect x="3" y="16" width="8" height="5" rx="1"/><rect x="13" y="16" width="8" height="5" rx="1"/></svg>
+        Vista Catálogo
+      </button>
+    </div>
   </div>
 
   <div class="view-toggle">
