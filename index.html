@@ -2497,6 +2497,18 @@ body.catalog-active .whatsapp-button { display:none !important }
 .btn-inicio svg { width:12px;height:12px;flex-shrink:0 }
 
 /* Responsive catalog */
+.book-scene.mobile-view .prod-body {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+.book-scene.mobile-view .price-row {
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 10px !important;
+}
+
 @media(max-width:520px){
   #view-catalog { padding:14px 10px 28px }
   .book-scene { max-width:340px !important }
@@ -2504,8 +2516,6 @@ body.catalog-active .whatsapp-button { display:none !important }
   .book-spine { display:none !important }
   .view-toggle { display:none }
   .catalog-header { padding-top:16px }
-  .prod-body { display:flex; flex-direction:column; align-items:center; text-align:center; }
-  .price-row { justify-content:center; width:100%; gap:10px; }
 }
 @media(max-width:380px){
   .prod-price { font-size:.88rem }
