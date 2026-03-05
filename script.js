@@ -103,9 +103,9 @@ const productsData = {
     ],
   },
   8: {
-    title: "Aceto Balsámico Clásico Casalta x 400 ml",
+    title: "Aceto Balsámico Clásico Casalta x 250 ml",
     image: "casalta.png",
-    price: 4800,
+    price: 4000,
     description: [
       "Casalta es la marca líder de Porta Hermanos, empresa cordobesa con más de 140 años de historia.",
       "Este Aceto Balsámico Clásico destaca por su acidez intensa y equilibrada, al estilo de Modena.",
@@ -114,7 +114,7 @@ const productsData = {
       "Su sabor envuelve el paladar con una mezcla armoniosa de notas agrias y un final dulce persistente.",
       "Es el aliado perfecto para realzar el sabor de ensaladas diarias, vegetales asados y marinados.",
       "Su versatilidad permite utilizarlo también en recetas de carnes blancas e incluso en coctelería.",
-      "La presentación en botella de vidrio de 400 ml garantiza una larga vida útil y frescura del producto.",
+      "La presentación en envase PET de 250 ml garantiza una larga vida útil y frescura del producto.",
       "Incluye el práctico pico dosificador que permite un servicio preciso y evita derrames accidentales.",
       "Un clásico indispensable en los hogares argentinos que valoran la tradición industrial y el buen sabor.",
     ],
@@ -190,7 +190,7 @@ const productsData = {
   13: {
     title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml",
     image: "hilal.png",
-    price: 11800,
+    price: 12900,
     description: [
       'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
       "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
@@ -224,7 +224,7 @@ const productsData = {
   15: {
     title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml",
     image: "hilal-55-v.png",
-    price: 14700,
+    price: 15200,
     description: [
       'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
       "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
@@ -236,6 +236,40 @@ const productsData = {
       "Su proceso de elaboración cuenta con molienda fina en molino de piedra y un cuidadoso decantado completamente natural.",
       "Esta presentación en un elegante envase de vidrio con pico dosificador protege y facilita el uso de tu aceite.",
       "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor.",
+    ],
+  },
+  16: {
+    title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 1000 ml",
+    image: "hilal-1L.png",
+    price: 23900,
+    description: [
+      'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
+      "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
+      "Resulta de una mezcla equilibrada de cuatro distinguidas variedades de aceitunas: Arbequina, Arauco, Frantoio y Manzanilla.",
+      "Dentro de su perfil de sabor, se destaca especialmente por su suavidad inigualable al paladar.",
+      "Logra una combinación perfecta donde el picor y el amargor son sutiles, realzando el sabor de las comidas sin invadirlas.",
+      "La extracción se obtiene mediante primera presión en frío, lo que garantiza la pureza y la máxima calidad del aceite.",
+      'La cosecha se realiza de forma manual utilizando el tradicional método de "ordeño", cuidando el fruto desde el origen.',
+      "Su proceso de elaboración cuenta con molienda fina en molino de piedra y un cuidadoso decantado completamente natural.",
+      "La presentación de 1000 ml en envase PET de alta densidad es ideal para el uso diario y la mejor relación precio-rendimiento.",
+      "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor.",
+    ],
+  },
+  17: {
+    title: "Aceite Familia Zuccardi Genovesa x 500 ml",
+    image: "genovesa-500.png",
+    price: 19900,
+    description: [
+      "El Aceite Genovesa 500 ml es la presentación más generosa del varietal más delicado de la Familia Zuccardi, elaborado en Mendoza.",
+      "La variedad Genovesa es una cultivar de origen italiano adaptada con maestría al excepcional terruño de los Valles Mendocinos.",
+      "En nariz, despliega un frutado de intensidad media, elegante y refinado, con notas limpias y muy características.",
+      "Su aroma principal evoca a hierbas frescas y manzana verde, con la frescura propia de aceitunas cosechadas en su punto ideal.",
+      "En ocasiones, el perfil aromático se enriquece con notas más maduras, como suaves toques de frutos rojos que lo hacen único.",
+      "En boca, es un aceite profundamente equilibrado, que evita extremos de amargor o picor para priorizar la armonía de sabores.",
+      "Su frutado resulta complejo y persistente en el paladar, revelando capas de sabor que se desarrollan lentamente con cada sorbo.",
+      "Es la elección perfecta para quienes buscan un AOVE fino y versátil: ensaladas de hojas verdes, pescados y carpaccios.",
+      "El envase de vidrio de 500 ml con pico dosificador antigoteo garantiza la protección de su delicado perfil aromático.",
+      "Elegir el Genovesa Zuccardi 500 ml es incorporar a tu mesa la fineza de un varietal único, con la firma de una familia centenaria.",
     ],
   },
 };

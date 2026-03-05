@@ -1260,31 +1260,11 @@ footer p {
   }
 
   .main-header {
-    height: auto;
-    min-height: 70px;
-    padding: 10px 0;
-    flex-wrap: wrap;
-  }
-
-  .header-container {
-    flex-wrap: wrap;
-    row-gap: 8px;
+    height: 70px;
   }
 
   .header-logo {
     font-size: 1.5rem;
-  }
-
-  .header-actions {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    padding-bottom: 4px;
-  }
-
-  .view-switcher {
-    flex: 1;
-    justify-content: center;
   }
 
   .about-content {
@@ -1338,7 +1318,7 @@ footer p {
   }
 
   .hero {
-    padding: 130px 16px 60px;
+    padding: 100px 16px 60px;
   }
 
   .hero .description {
@@ -2137,7 +2117,7 @@ body.catalog-active .whatsapp-button { display:none !important }
   box-shadow:0 3px 10px rgba(30,58,36,.3);
 }
 .vs-btn:not(.active):hover { background:rgba(30,58,36,.06);color:var(--cat-primary) }
-@media(max-width:360px){
+@media(max-width:480px){
   .vs-btn span { display:none }
   .vs-btn { padding:8px 10px }
 }
@@ -2149,12 +2129,10 @@ body.catalog-active .whatsapp-button { display:none !important }
   min-height:100vh;
   display:flex;flex-direction:column;
   align-items:center;justify-content:flex-start;
-  padding:20px 16px 80px;
+  padding:20px 16px 36px;
   color:var(--cat-text);
   overflow-x:hidden;
   position:relative;
-  box-sizing:border-box;
-  width:100%;
 }
 #view-catalog::before {
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.2;
@@ -2209,8 +2187,6 @@ body.catalog-active .whatsapp-button { display:none !important }
 .book-scene {
   position:relative;z-index:1;perspective:2200px;
   width:100%;max-width:800px;transition:max-width .35s ease;
-  margin-left:auto;margin-right:auto;
-  display:block;
 }
 .book-scene.mobile-view { max-width:360px }
 .book-scene.mobile-view .page { grid-template-columns:1fr }
@@ -2482,9 +2458,8 @@ body.catalog-active .whatsapp-button { display:none !important }
 
 /* Nav */
 .cat-nav {
-  display:flex;align-items:center;justify-content:center;gap:14px;
+  display:flex;align-items:center;gap:14px;
   margin-top:18px;position:relative;z-index:1;
-  width:100%;
 }
 .nav-btn {
   width:44px;height:44px;border:1.5px solid rgba(30,58,36,.16);border-radius:50%;
@@ -2499,8 +2474,7 @@ body.catalog-active .whatsapp-button { display:none !important }
 .page-indicator {
   font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--cat-text-muted);font-weight:500;
-  min-width:160px;max-width:200px;text-align:center;line-height:1.4;
-  padding:0 4px;
+  min-width:80px;text-align:center;line-height:1.4;
 }
 
 /* Floating INICIO */
@@ -2536,8 +2510,8 @@ body.catalog-active .whatsapp-button { display:none !important }
 }
 
 @media(max-width:520px){
-  #view-catalog { padding:14px 10px 80px; align-items:center; }
-  .book-scene { max-width:340px !important; margin-left:auto !important; margin-right:auto !important; }
+  #view-catalog { padding:14px 10px 28px }
+  .book-scene { max-width:340px !important }
   .book { aspect-ratio:.75/1 !important }
   .book-spine { display:none !important }
   .view-toggle { display:none }
@@ -2548,29 +2522,6 @@ body.catalog-active .whatsapp-button { display:none !important }
   .wa-btn { font-size:.56rem;padding:5px 9px }
   .product-slot { padding:12px 10px;gap:5px }
 }
-
-/* ── Dark theme catalog ── */
-body.dark-theme #view-catalog {
-  background: linear-gradient(145deg,#141a15 0%,#1b2420 50%,#111710 100%);
-  color: #e1e9e2;
-}
-body.dark-theme #view-catalog::before { mix-blend-mode:overlay; opacity:.1; }
-body.dark-theme .catalog-header .header-brand { color: #9dc5a3; }
-body.dark-theme .catalog-header .header-year { color: #b2c262; }
-body.dark-theme .catalog-header .header-hint { color: #778a7a; }
-body.dark-theme .view-btn { background:rgba(157,197,163,.08); border-color:rgba(157,197,163,.18); color:#a6b5a8; }
-body.dark-theme .view-btn.active { background:#9dc5a3; color:#141a15; border-color:#9dc5a3; }
-body.dark-theme .page { background:#1e2a21; }
-body.dark-theme .product-slot { background:#1e2a21; }
-body.dark-theme .prod-name { color:#e1e9e2; }
-body.dark-theme .prod-tag { color:#b2c262; }
-body.dark-theme .prod-brief { color:#a6b5a8; }
-body.dark-theme .prod-price { color:#e5cc80; }
-body.dark-theme .prod-img-wrap { background:linear-gradient(160deg,rgba(30,58,36,.3),rgba(27,36,29,.4)); }
-body.dark-theme .nav-btn { background:rgba(30,42,33,.9); border-color:rgba(157,197,163,.18); color:#9dc5a3; }
-body.dark-theme .nav-btn:hover:not(:disabled) { background:#9dc5a3; color:#141a15; }
-body.dark-theme .page-indicator { color:#778a7a; }
-body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
 </style>
 </head>
 
@@ -2676,11 +2627,13 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
       <div class="product-card animate-on-scroll" data-product="12"><div class="product-image"><img src="zuelo-500.png" alt="Zuelo 500" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Zuelo Virgen Extra Blend Original x 500 ml</h3><p class="product-brief">La frescura de la Familia Zuccardi en su presentación más generosa.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 17.600</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
       <div class="product-card animate-on-scroll" data-product="9"><div class="product-image"><img src="coratina_final.png" alt="Coratina" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Familia Zuccardi Coratina x 250 ml</h3><p class="product-brief">Intenso, amargo y picante. Gran estabilidad en el tiempo.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 11.400</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
       <div class="product-card animate-on-scroll" data-product="10"><div class="product-image"><img src="genovesa_final.png" alt="Genovesa" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Familia Zuccardi Genovesa x 250 ml</h3><p class="product-brief">Delicado y complejo. Frutado de manzana y hierbas frescas.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 11.400</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
+      <div class="product-card animate-on-scroll" data-product="17"><div class="product-image"><img src="genovesa-500.png" alt="Genovesa 500" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Familia Zuccardi Genovesa x 500 ml</h3><p class="product-brief">Delicado y complejo. Frutado de manzana y hierbas frescas.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 19.900</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
       <div class="product-card animate-on-scroll" data-product="11"><div class="product-image"><img src="picual_final.png" alt="Picual" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Familia Zuccardi Picual x 250 ml</h3><p class="product-brief">Aromático y fresco. Frutado intenso con amargos y picantes medios.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 11.400</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
-      <div class="product-card animate-on-scroll" data-product="13"><div class="product-image"><img src="hilal.png" alt="Hilal PET" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml</h3><p class="product-brief">Artesanal, agroecológico y de primera presión en frío.</p><p class="product-tag">ENVASE PET DE ALTA DENSIDAD</p><p class="product-price">$ 11.800</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
-      <div class="product-card animate-on-scroll" data-product="15"><div class="product-image"><img src="hilal-55-v.png" alt="Hilal Vidrio" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml</h3><p class="product-brief">Artesanal, agroecológico y de primera presión en frío.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 14.700</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
+      <div class="product-card animate-on-scroll" data-product="13"><div class="product-image"><img src="hilal.png" alt="Hilal PET" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml</h3><p class="product-brief">Artesanal, agroecológico y de primera presión en frío.</p><p class="product-tag">ENVASE PET DE ALTA DENSIDAD</p><p class="product-price">$ 12.900</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
+      <div class="product-card animate-on-scroll" data-product="15"><div class="product-image"><img src="hilal-55-v.png" alt="Hilal Vidrio" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml</h3><p class="product-brief">Artesanal, agroecológico y de primera presión en frío.</p><p class="product-tag">ENVASE DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 15.200</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
+      <div class="product-card animate-on-scroll" data-product="16"><div class="product-image"><img src="hilal-1L.png" alt="Hilal 1000 ml" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceite Hilal Virgen Extra Blend Doña Sofía x 1000 ml</h3><p class="product-brief">Artesanal, agroecológico y de primera presión en frío.</p><p class="product-tag">ENVASE PET DE ALTA DENSIDAD</p><p class="product-price">$ 23.900</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
       <div class="product-card animate-on-scroll" data-product="7"><div class="product-image"><img src="oliovita.png" alt="Aceto Oliovita" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceto Balsámico Oliovita Reducción x 250 ml</h3><p class="product-brief">Textura espesa y untuosa de reducción clásica.</p><p class="product-tag">BOTELLA DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 4.800</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
-      <div class="product-card animate-on-scroll" data-product="8"><div class="product-image"><img src="casalta.png" alt="Casalta" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceto Balsámico Clásico Casalta x 400 ml</h3><p class="product-brief">La tradición italiana hecha en Córdoba.</p><p class="product-tag">BOTELLA DE VIDRIO • PICO DOSIFICADOR</p><p class="product-price">$ 4.800</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
+      <div class="product-card animate-on-scroll" data-product="8"><div class="product-image"><img src="casalta.png" alt="Casalta" class="product-img"/><div class="product-overlay"><span class="view-more">Ver más</span></div></div><div class="product-info"><h3>Aceto Balsámico Clásico Casalta x 250 ml</h3><p class="product-brief">La tradición italiana hecha en Córdoba.</p><p class="product-tag">ENVASE PET</p><p class="product-price">$ 4.000</p><button class="buy-wa-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>COMPRÁ POR WHATSAPP</button></div></div>
     </div>
   </div>
 </section>
@@ -2796,16 +2749,10 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
     </div>
     <div class="header-year">Catálogo de productos · Temporada 2026</div>
     <div class="header-hint">Deslice hacia la derecha para navegar por nuestros productos</div>
-    <div style="display:flex;gap:6px;justify-content:center;margin-top:12px;position:relative;z-index:1;">
-      <button onclick="switchView('original')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--cat-primary);color:#fff;border:none;border-radius:100px;font-family:var(--font-sans);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 3px 10px rgba(30,58,36,.3);transition:all .2s;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:13px;height:13px"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        Vista Deslizable
-      </button>
-      <button onclick="switchView('original')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(30,58,36,.08);color:var(--cat-primary);border:1.5px solid rgba(30,58,36,.18);border-radius:100px;font-family:var(--font-sans);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(30,58,36,.14)'" onmouseout="this.style.background='rgba(30,58,36,.08)'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:13px;height:13px"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="10" rx="1"/><rect x="3" y="16" width="8" height="5" rx="1"/><rect x="13" y="16" width="8" height="5" rx="1"/></svg>
-        Vista Catálogo
-      </button>
-    </div>
+    <button class="cat-back-to-site" onclick="switchView('original')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      Vista Deslizante
+    </button>
   </div>
 
   <div class="view-toggle">
@@ -2985,7 +2932,24 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
 </div></div>
   <span class="pg-num pg-num-left">10</span><span class="pg-num pg-num-right">11</span>
 </div>
+
 <div class="page hidden" id="page-6">
+  <div class="page-half page-left"><div class="product-slot" data-id="genovesa-500">
+  <div class="prod-img-wrap" onclick="toggleDetail(this)">
+    <img src="genovesa-500.png" alt="Familia Zuccardi Genovesa x 500 ml" class="prod-image">
+    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% Genovesa en presentación de 500 ml</li><li>Cosecha temprana para mayor frescura y complejidad</li><li>Perfil: frutado de manzana verde, tomate y alcachofa</li><li>Amargo ligero, picante suave, ideal para uso diario</li><li>Envase de vidrio oscuro con pico dosificador antigoteo</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">&#x2715; Cerrar</button></div>
+    <div class="detail-hint">Tocá para ver características</div>
+  </div>
+  <div class="prod-body">
+    <span class="prod-tag">AOVE Varietal &middot; Vidrio &middot; Pico Dosificador</span>
+    <div class="prod-name">Familia Zuccardi Genovesa x 500 ml</div>
+    <div class="prod-brief">Delicado y complejo. Frutado de manzana y hierbas frescas.</div>
+    <div class="price-row"><span class="prod-price">$ 19.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Familia%20Zuccardi%20Genovesa%20x%20500%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
+  </div>
+</div></div>
+  <div class="page-half page-right"><div style="height:100%; display:flex; justify-content:center; align-items:center; opacity:0.04; font-size:120px; filter:grayscale(100%);">🫒</div></div>
+  <span class="pg-num pg-num-left">12</span><span class="pg-num pg-num-right">13</span>
+</div><div class="page hidden" id="page-7">
   <div class="page-half page-left"><div class="product-slot" data-id="hilal-pet">
   <div class="prod-img-wrap" onclick="toggleDetail(this)">
     <img src="hilal.png" alt="Hilal Virgen Extra Doña Sofía x 500 ml PET" class="prod-image">
@@ -2996,7 +2960,7 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
     <span class="prod-tag">AOVE Artesanal · Envase PET Alta Densidad</span>
     <div class="prod-name">Hilal Virgen Extra Doña Sofía x 500 ml PET</div>
     <div class="prod-brief">Artesanal, agroecológico y de primera presión en frío.</div>
-    <div class="price-row"><span class="prod-price">$ 11.800</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%20500%20ml%20PET%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
+    <div class="price-row"><span class="prod-price">$ 12.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%20500%20ml%20PET%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
   </div>
 </div></div>
   <div class="page-half page-right"><div class="product-slot" data-id="hilal-vidrio">
@@ -3009,13 +2973,28 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
     <span class="prod-tag">AOVE Artesanal · Vidrio · Pico Dosificador</span>
     <div class="prod-name">Hilal Virgen Extra Doña Sofía x 500 ml Vidrio</div>
     <div class="prod-brief">Artesanal, agroecológico y de primera presión en frío.</div>
-    <div class="price-row"><span class="prod-price">$ 14.700</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%20500%20ml%20Vidrio%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
+    <div class="price-row"><span class="prod-price">$ 15.200</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%20500%20ml%20Vidrio%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
   </div>
 </div></div>
   <span class="pg-num pg-num-left">12</span><span class="pg-num pg-num-right">13</span>
 </div>
-<div class="page hidden" id="page-7">
-  <div class="page-half page-left"><div class="product-slot" data-id="aceto-oliovita">
+<div class="page hidden" id="page-8">
+  <div class="page-half page-left">
+    <div class="product-slot" data-id="hilal-1000">
+      <div class="prod-img-wrap" onclick="toggleDetail(this)">
+        <img src="hilal-1L.png" alt="Hilal Virgen Extra Doña Sofía x 1000 ml" class="prod-image">
+        <div class="prod-detail-panel"><ul class="detail-list"><li>Producción artesanal y agroecológica certificada</li><li>Primera presión en frío, sin aditivos</li><li>Envase PET de alta densidad de 1000 ml</li><li>Origen: Córdoba, Argentina</li><li>Ideal para el uso frecuente y económico</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
+        <div class="detail-hint">Tocá para ver características</div>
+      </div>
+      <div class="prod-body">
+        <span class="prod-tag">AOVE Artesanal · Envase PET 1L</span>
+        <div class="prod-name">Hilal Virgen Extra Doña Sofía x 1000 ml</div>
+        <div class="prod-brief">Artesanal, agroecológico y de primera presión en frío. Rendimiento óptimo.</div>
+        <div class="price-row"><span class="prod-price">$ 23.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%201000%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
+      </div>
+    </div></div>
+
+  <div class="page-half page-right"><div class="product-slot" data-id="aceto-oliovita">
   <div class="prod-img-wrap" onclick="toggleDetail(this)">
     <img src="oliovita.png" alt="Aceto Balsámico Oliovita Reducción x 250 ml" class="prod-image">
     <div class="prod-detail-panel"><ul class="detail-list"><li>Reducción balsámica de mosto de uva</li><li>Textura densa y brillante</li><li>Sabor: dulce-ácido con notas de frutos rojos</li><li>Ideal para carnes, quesos, ensaladas y postres</li><li>Botella de vidrio con pico dosificador</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
@@ -3028,7 +3007,10 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
     <div class="price-row"><span class="prod-price">$ 4.800</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceto%20Bals%C3%A1mico%20Oliovita%20Reducci%C3%B3n%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
   </div>
 </div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="casalta">
+  <span class="pg-num pg-num-left">14</span><span class="pg-num pg-num-right">15</span>
+</div>
+<div class="page hidden" id="page-9">
+<div class="page-half page-left"><div class="product-slot" data-id="casalta">
   <div class="prod-img-wrap" onclick="toggleDetail(this)">
     <img src="casalta.png" alt="Aceto Balsámico Casalta x 250 ml" class="prod-image">
     <div class="prod-detail-panel"><ul class="detail-list"><li>Reducción artesanal de mosto de uva seleccionado</li><li>Textura untuosa y concentrada</li><li>Sabor: complejo, dulce con retrogusto ahumado</li><li>Versátil: maridaje con quesos, frutas y helados</li><li>Botella de vidrio con pico dosificador</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
@@ -3038,12 +3020,14 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
     <span class="prod-tag">Aceto Balsámico · Botella Vidrio</span>
     <div class="prod-name">Aceto Balsámico Casalta x 250 ml</div>
     <div class="prod-brief">Reducción balsámica premium. Ideal para carnes y ensaladas.</div>
-    <div class="price-row"><span class="prod-price">$ 4.800</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceto%20Bals%C3%A1mico%20Casalta%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
+    <div class="price-row"><span class="prod-price">$ 4.000</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceto%20Bals%C3%A1mico%20Casalta%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
   </div>
 </div></div>
-  <span class="pg-num pg-num-left">14</span><span class="pg-num pg-num-right">15</span>
+  
+  <div class="page-half page-right"><div style="height:100%; display:flex; justify-content:center; align-items:center; opacity:0.04; font-size:120px; filter:grayscale(100%);">🫒</div></div>
+  <span class="pg-num pg-num-left">16</span><span class="pg-num pg-num-right">17</span>
 </div>
-<div class="page page-back hidden" id="page-8">
+<div class="page page-back hidden" id="page-10">
   <div class="page-half page-left back-left">
     <img src="data:image/jpeg;base64,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" alt="Olivery" class="back-logo"/>
     <div class="back-title">Olivery</div>
@@ -3058,7 +3042,7 @@ body.dark-theme .pg-num { color:rgba(157,197,163,.3); }
     <div class="cover-divider"></div>
     <div class="back-text" style="opacity:.45">Temporada 2026</div>
   </div>
-  <span class="pg-num pg-num-right">17</span>
+  <span class="pg-num pg-num-right">19</span>
 </div>
     </div>
   </div>
@@ -3108,7 +3092,7 @@ function switchView(v) {
    MOBILE: flips through individual product slots (1 product at a time)
    ═══════════════════════════════════════════════════ */
 
-const SPREAD_TOTAL = 9; // page-0 … page-8
+const SPREAD_TOTAL = 11; // page-0 … page-8
 let catMobile = false;
 let catCur = 0, catBusy = false;
 
@@ -3130,8 +3114,10 @@ const PRODUCT_NAMES = [
   "Familia Zuccardi Coratina",
   "Familia Zuccardi Genovesa",
   "Familia Zuccardi Picual",
+  "Familia Zuccardi Genovesa 500 ml",
   "Hilal Virgen Extra Doña Sofía PET",
   "Hilal Virgen Extra Doña Sofía Vidrio",
+  "Aceite Hilal Virgen Extra Doña Sofía 1000 ml",
   "Aceto Balsámico Oliovita Reducción",
   "Aceto Balsámico Casalta"
 ];
@@ -3144,8 +3130,10 @@ const SPREAD_LABELS = [
   "Laur · Zuelo Original 250 ml",
   "Zuelo Blend 500 ml · Zuccardi Coratina",
   "Zuccardi Genovesa · Zuccardi Picual",
+  "Genovesa 500 ml",
   "Hilal PET · Hilal Vidrio",
-  "Aceto Oliovita · Aceto Casalta",
+  "Hilal 1000 ml · Aceto Oliovita",
+  "Aceto Casalta",
   "Contraportada"
 ];
 
@@ -3167,11 +3155,13 @@ const MOB_SEQ = [
   { spread:4, side:'right' },  // Coratina
   { spread:5, side:'left'  },  // Genovesa
   { spread:5, side:'right' },  // Picual
-  { spread:6, side:'left'  },  // Hilal PET
-  { spread:6, side:'right' },  // Hilal Vidrio
-  { spread:7, side:'left'  },  // Aceto Oliovita
-  { spread:7, side:'right' },  // Aceto Casalta
-  { spread:8, side:'both' },   // Contraportada
+  { spread:6, side:'left'  },  // Genovesa 500
+  { spread:7, side:'left'  },  // Hilal PET
+  { spread:7, side:'right' },  // Hilal Vidrio
+  { spread:8, side:'left'  },  // Hilal 1000
+  { spread:8, side:'right' },  // Aceto Oliovita
+  { spread:9, side:'left'  },  // Aceto Casalta
+  { spread:10, side:'both' },  // Contraportada
 ];
 
 function getTotal() { return catMobile ? MOB_SEQ.length : SPREAD_TOTAL; }
@@ -3435,9 +3425,9 @@ const productsData = {
     ],
   },
   8: {
-    title: "Aceto Balsámico Clásico Casalta x 400 ml",
+    title: "Aceto Balsámico Clásico Casalta x 250 ml",
     image: "casalta.png",
-    price: 4800,
+    price: 4000,
     description: [
       "Casalta es la marca líder de Porta Hermanos, empresa cordobesa con más de 140 años de historia.",
       "Este Aceto Balsámico Clásico destaca por su acidez intensa y equilibrada, al estilo de Modena.",
@@ -3446,8 +3436,8 @@ const productsData = {
       "Su sabor envuelve el paladar con una mezcla armoniosa de notas agrias y un final dulce persistente.",
       "Es el aliado perfecto para realzar el sabor de ensaladas diarias, vegetales asados y marinados.",
       "Su versatilidad permite utilizarlo también en recetas de carnes blancas e incluso en coctelería.",
-      "La presentación en botella de vidrio de 400 ml garantiza una larga vida útil y frescura del producto.",
-      "Incluye el práctico pico dosificador que permite un servicio preciso y evita derrames accidentales.",
+      "La presentación en envase PET de 250 ml garantiza una larga vida útil y frescura del producto.",
+      "Su envase práctico permite un servicio preciso y evita derrames accidentales.",
       "Un clásico indispensable en los hogares argentinos que valoran la tradición industrial y el buen sabor.",
     ],
   },
@@ -3522,7 +3512,7 @@ const productsData = {
   13: {
     title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml",
     image: "hilal.png",
-    price: 11800,
+    price: 12900,
     description: [
       'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
       "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
@@ -3556,7 +3546,7 @@ const productsData = {
   15: {
     title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 500 ml",
     image: "hilal-55-v.png",
-    price: 14700,
+    price: 15200,
     description: [
       'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
       "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
@@ -3568,6 +3558,40 @@ const productsData = {
       "Su proceso de elaboración cuenta con molienda fina en molino de piedra y un cuidadoso decantado completamente natural.",
       "Esta presentación en un elegante envase de vidrio con pico dosificador protege y facilita el uso de tu aceite.",
       "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor.",
+    ],
+  },
+  16: {
+    title: "Aceite Hilal Virgen Extra Blend Doña Sofía x 1000 ml",
+    image: "hilal-1L.png",
+    price: 23900,
+    description: [
+      'El aceite de oliva virgen extra Hilal "Doña Sofía" Blend es un producto artesanal y agroecológico elaborado en Argentina.',
+      "Producido mediante procesos 100% naturales que preservan intacto su alto valor nutricional y propiedades benéficas.",
+      "Resulta de una mezcla equilibrada de cuatro distinguidas variedades de aceitunas: Arbequina, Arauco, Frantoio y Manzanilla.",
+      "Dentro de su perfil de sabor, se destaca especialmente por su suavidad inigualable al paladar.",
+      "Logra una combinación perfecta donde el picor y el amargor son sutiles, realzando el sabor de las comidas sin invadirlas.",
+      "La extracción se obtiene mediante primera presión en frío, lo que garantiza la pureza y la máxima calidad del aceite.",
+      'La cosecha se realiza de forma manual utilizando el tradicional método de "ordeño", cuidando el fruto desde el origen.',
+      "Su proceso de elaboración cuenta con molienda fina en molino de piedra y un cuidadoso decantado completamente natural.",
+      "Esta presentación en un envase PET de 1000 ml protege y facilita el uso de tu aceite de forma económica.",
+      "Es una opción excepcional para quienes buscan un aceite 100% natural, ideal para cuidar la salud y disfrutar del mejor sabor."
+    ],
+  },
+  17: {
+    title: "Aceite Familia Zuccardi Genovesa x 500 ml",
+    image: "genovesa-500.png",
+    price: 19900,
+    description: [
+      "El Aceite Genovesa de la Familia Zuccardi en su presentación de 500 ml para mayor rendimiento.",
+      "La variedad Genovesa es una cultivar de origen italiano adaptada con maestría al terruño mendocino.",
+      "En nariz, despliega un frutado de intensidad media, elegante y refinado, con notas limpias características.",
+      "Su aroma principal evoca a hierbas frescas y manzana verde, con la frescura de aceitunas en punto ideal.",
+      "Perfil profundamente equilibrado: amargo ligero, picante suave, priorizando la armonía de sabores.",
+      "Su frutado resulta complejo y persistente en el paladar, revelando capas de sabor que se desarrollan.",
+      "Es la elección perfecta para ensaladas de hojas verdes, pescados y carpaccios.",
+      "La presentación 500 ml en vidrio oscuro con pico dosificador garantiza mayor rendimiento y frescura.",
+      "Ideal para hogares que consumen aceite de oliva de alta calidad a diario.",
+      "Elegir el Genovesa Zuccardi es incorporar a tu mesa la fineza de un varietal único con firma centenaria.",
     ],
   },
 };
