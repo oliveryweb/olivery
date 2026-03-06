@@ -470,6 +470,7 @@ body.dark-theme .moon-icon {
   align-items: center;
   gap: 12px;
   padding: 18px 40px;
+  cursor: pointer;
   background: linear-gradient(
     135deg,
     #cfab36 0%,
@@ -2047,492 +2048,128 @@ body.dark-theme .modal-image {
 }
 body.dark-theme .checkout-close { color: var(--text-muted); }
 body.dark-theme .checkout-close:hover { color: var(--text); }
-</style>
 
-<!-- ════════════════════════════════════
-     ESTILOS VISTA CATÁLOGO (flipbook)
-     ════════════════════════════════════ -->
-<style id="style-catalog">
-/* Tokens compartidos */
-:root {
-  --cat-primary:#1e3a24;--cat-primary-light:#345c38;--cat-secondary:#909d43;
-  --cat-accent:#d4af37;--cat-accent-light:#e8c96b;
-  --cat-cream:#f4efe9;--cat-cream-dark:#e8e2d8;
-  --cat-text:#172418;--cat-text-muted:#4e5c4f;--cat-heading:#122115;
-  --r:14px;
-  --font-serif:'Cormorant Garamond',serif;--font-sans:'Outfit',sans-serif;
+/* ── CTA Dropdown ─────────────────────────────── */
+.cta-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
-/* Wrapper que oculta/muestra vistas */
-#view-original { display:block }
-#view-catalog  { display:none }
-body.catalog-active #view-original { display:none }
-body.catalog-active #view-catalog  { display:block }
-
-/* Ocultar WA flotante en modo catálogo */
-body.catalog-active .whatsapp-button { display:none !important }
-
-
-/* ── Back-to-site button inside catalog header ── */
-.cat-back-to-site {
-  display:inline-flex;align-items:center;gap:6px;
-  margin-top:10px;
-  padding:7px 16px;
-  background:rgba(30,58,36,.1);
-  border:1px solid rgba(30,58,36,.18);
-  border-radius:100px;
-  font-family:var(--font-sans);font-size:.6rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--cat-primary);cursor:pointer;
-  transition:background .2s;
-}
-.cat-back-to-site:hover { background:rgba(30,58,36,.18) }
-.cat-back-to-site svg { width:13px;height:13px }
-
-/* ── Toggle pill ── */
-.view-switcher {
-  display:flex;
-  align-items:center;
-  background:rgba(30,58,36,.07);
-  border:1px solid rgba(30,58,36,.13);
-  border-radius:100px;
-  padding:3px;
-  gap:2px;
-  flex-shrink:0;
-}
-.vs-btn {
-  display:flex;align-items:center;gap:5px;
-  padding:6px 12px;
-  border:none;border-radius:100px;
-  background:transparent;
-  font-family:var(--font-sans);font-size:.58rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--cat-text-muted);
-  cursor:pointer;transition:all .22s;
-  white-space:nowrap;
-}
-.vs-btn svg { width:13px;height:13px;flex-shrink:0 }
-.vs-btn.active {
-  background:var(--cat-primary);color:#fff;
-  box-shadow:0 3px 10px rgba(30,58,36,.3);
-}
-.vs-btn:not(.active):hover { background:rgba(30,58,36,.06);color:var(--cat-primary) }
-@media(max-width:480px){
-  .vs-btn span { display:none }
-  .vs-btn { padding:8px 10px }
+.olive-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 2px 4px rgba(0,0,0,0.25))
+    drop-shadow(0 0 8px rgba(30,92,30,0.5));
 }
 
-/* ── Catalog wrapper ── */
-#view-catalog {
-  font-family:var(--font-sans);
-  background:linear-gradient(145deg,#e8e2d8 0%,#f0ebe4 50%,#ddd7cd 100%);
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:flex-start;
-  padding:20px 16px 36px;
-  color:var(--cat-text);
-  overflow-x:hidden;
-  position:relative;
-}
-#view-catalog::before {
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.2;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply;
+.olive-branch-svg {
+  animation: oliveBounce 2.4s ease-in-out infinite;
+  transform-origin: 50% 100%;
 }
 
-/* ── Catalog header ── */
-.catalog-header {
-  text-align:center;margin-bottom:14px;position:relative;z-index:1;
-  padding-top:18px;
-}
-.header-logo-wrap {
-  display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;
-}
-.header-logo-img {
-  width:48px;height:48px;object-fit:contain;border-radius:10px;
-  box-shadow:0 4px 12px rgba(30,58,36,.2);
-}
-.header-brand {
-  font-family:var(--font-serif);font-size:1.8rem;color:var(--cat-primary);
-  letter-spacing:-.02em;font-weight:700;line-height:1;
-}
-.header-year {
-  font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;
-  color:var(--cat-secondary);font-weight:500;margin-bottom:5px;opacity:.85;
-}
-.header-hint {
-  font-size:.7rem;color:var(--cat-text-muted);letter-spacing:.03em;
-  font-style:italic;opacity:.75;
+@keyframes oliveBounce {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  30%       { transform: rotate(8deg) scale(1.08); }
+  60%       { transform: rotate(-4deg) scale(0.96); }
 }
 
-/* ── View toggle mobile/pc ── */
-.view-toggle {
-  display:flex;gap:8px;justify-content:center;
-  margin-bottom:16px;position:relative;z-index:1;
-}
-.view-btn {
-  display:flex;align-items:center;gap:5px;padding:7px 14px;
-  border:1.5px solid rgba(30,58,36,.18);border-radius:100px;
-  background:rgba(244,239,233,.9);cursor:pointer;
-  font-family:var(--font-sans);font-size:.62rem;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--cat-text-muted);
-  transition:all .2s;
-}
-.view-btn.active {
-  background:var(--cat-primary);color:#fff;border-color:var(--cat-primary);
-}
-.view-btn svg {width:13px;height:13px}
-
-/* ── Book scene ── */
-.book-scene {
-  position:relative;z-index:1;perspective:2200px;
-  width:100%;max-width:800px;transition:max-width .35s ease;
-}
-.book-scene.mobile-view { max-width:360px }
-.book-scene.mobile-view .page { grid-template-columns:1fr }
-.book-scene.mobile-view .page-half { border-right:none !important }
-.book-scene.mobile-view .book-spine { display:none }
-.book-shadow {
-  position:absolute;bottom:-16px;left:10%;width:80%;height:22px;
-  background:radial-gradient(ellipse,rgba(30,58,36,.28) 0%,transparent 70%);
-  filter:blur(10px);border-radius:50%;z-index:-1;
-}
-.book {
-  position:relative;width:100%;aspect-ratio:1.55/1;
-  transition:aspect-ratio .35s ease;
-}
-.book-scene.mobile-view .book { aspect-ratio:.75/1 }
-.book-spine {
-  position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:3px;height:100%;
-  background:linear-gradient(180deg,rgba(30,58,36,.22),rgba(30,58,36,.07),rgba(30,58,36,.22));
-  z-index:20;pointer-events:none;
-}
-
-/* ── Pages ── */
-.page {
-  position:absolute;inset:0;
-  display:grid;grid-template-columns:1fr 1fr;
-  border-radius:var(--r);overflow:hidden;
-  box-shadow:0 24px 70px rgba(30,58,36,.2),0 6px 20px rgba(30,58,36,.1);
-  background:var(--cat-cream);
-}
-.page.hidden { display:none }
-.page::before {
-  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:22px;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(30,58,36,.035),transparent);
-  z-index:10;pointer-events:none;
-}
-.page-half { position:relative;overflow:hidden }
-.page-half.page-left { border-right:1px solid rgba(30,58,36,.07) }
-
-/* Cover */
-.cover-left {
-  background:linear-gradient(155deg,#1e3a24 0%,#0d1e12 100%);
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:space-evenly;padding:18px 22px;gap:0;
-}
-.cover-right {
-  background:linear-gradient(155deg,#0d1e12 0%,#1a2e0f 100%);
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:22px 22px;gap:10px;
-}
-.cover-logo {
-  width:min(70px,13vw);height:min(70px,13vw);
-  object-fit:contain;border-radius:12px;
-  box-shadow:0 8px 28px rgba(0,0,0,.55);flex-shrink:0;
-}
-.cover-title {
-  font-family:var(--font-serif);
-  font-size:clamp(1.3rem,3vw,2.1rem);
-  color:#fff;font-weight:700;letter-spacing:-.02em;
-  text-align:center;line-height:1;
-}
-.cover-sub {
-  font-size:clamp(.48rem,.85vw,.6rem);letter-spacing:.22em;
-  text-transform:uppercase;color:rgba(212,175,55,.7);
-  font-weight:500;text-align:center;
-}
-.cover-tagline {
-  font-family:var(--font-serif);font-style:italic;
-  font-size:clamp(.72rem,1.25vw,.9rem);
-  color:rgba(255,255,255,.6);text-align:center;
-  line-height:1.55;max-width:175px;
-}
-.cover-divider {
-  width:36px;height:1px;flex-shrink:0;
-  background:linear-gradient(90deg,transparent,rgba(212,175,55,.5),transparent);
-}
-.cover-badge {
-  font-size:clamp(.45rem,.72vw,.54rem);letter-spacing:.15em;
-  text-transform:uppercase;color:rgba(255,255,255,.32);text-align:center;
-}
-.cover-cat-label {
-  font-family:var(--font-serif);
-  font-size:clamp(.9rem,1.8vw,1.5rem);
-  color:var(--cat-accent-light);font-weight:600;
-  font-style:italic;text-align:center;
-}
-.cover-items-list {
-  list-style:none;display:flex;flex-direction:column;gap:6px;width:100%;
-}
-.cover-items-list li {
-  font-size:clamp(.58rem,.92vw,.7rem);color:rgba(255,255,255,.5);
-  letter-spacing:.06em;display:flex;align-items:center;gap:7px;
-}
-.cover-items-list li::before {
-  content:'';width:4px;height:4px;border-radius:50%;
-  background:var(--cat-accent);flex-shrink:0;
-}
-.cover-hint {
-  font-size:clamp(.45rem,.72vw,.56rem);letter-spacing:.1em;
-  color:rgba(255,255,255,.22);text-transform:uppercase;text-align:center;
-}
-
-/* Product slot */
-.product-slot {
-  display:flex;flex-direction:column;height:100%;
-  padding:16px 14px;gap:7px;background:var(--cat-cream);
-}
-.prod-img-wrap {
-  flex:1;min-height:0;border-radius:10px;
-  background:linear-gradient(160deg,rgba(144,157,67,.07),rgba(212,175,55,.05));
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  overflow:hidden;position:relative;cursor:pointer;transition:all .25s;
-}
-.prod-img-wrap:hover { box-shadow:0 4px 16px rgba(30,58,36,.1) }
-.prod-img-placeholder {
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:7px;padding:14px;text-align:center;width:100%;transition:opacity .2s;
-}
-.prod-image {
+.product-dropdown {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  padding: 15px;
-  transition: transform .3s ease;
-}
-.prod-img-wrap:hover .prod-image {
-  transform: scale(1.05);
-}
-.placeholder-icon { font-size:clamp(1.8rem,3.5vw,2.6rem);opacity:.55 }
-.placeholder-name {
-  font-family:var(--font-serif);
-  font-size:clamp(.72rem,1.15vw,.88rem);
-  color:var(--cat-heading);font-weight:600;
-  line-height:1.3;letter-spacing:-.01em;opacity:.72;
-}
-.detail-hint {
-  position:absolute;bottom:7px;left:0;right:0;text-align:center;
-  font-size:.52rem;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--cat-secondary);opacity:.65;transition:opacity .2s;
-}
-.prod-img-wrap.open .detail-hint { opacity:0 }
-.prod-detail-panel {
-  position:absolute;inset:0;
-  background:linear-gradient(155deg,rgba(30,58,36,.96),rgba(13,30,18,.98));
-  padding:14px 12px 10px;display:flex;flex-direction:column;gap:5px;
-  opacity:0;transform:translateY(8px);
-  transition:opacity .28s,transform .28s;
-  pointer-events:none;overflow-y:auto;
-}
-.prod-img-wrap.open .prod-img-placeholder { opacity:0;pointer-events:none }
-.prod-img-wrap.open .prod-detail-panel { opacity:1;transform:translateY(0);pointer-events:auto }
-.detail-list { list-style:none;display:flex;flex-direction:column;gap:5px;flex:1 }
-.detail-list li {
-  font-size:clamp(.62rem,1vw,.75rem);color:rgba(255,255,255,.75);
-  line-height:1.5;padding-left:13px;position:relative;
-}
-.detail-list li::before {
-  content:'›';position:absolute;left:0;
-  color:var(--cat-accent);font-size:.88rem;line-height:1.3;
-}
-.detail-close {
-  margin-top:auto;padding:6px 12px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
-  border-radius:100px;color:rgba(255,255,255,.65);
-  font-size:.58rem;font-family:var(--font-sans);
-  letter-spacing:.1em;text-transform:uppercase;
-  cursor:pointer;transition:all .2s;align-self:center;
-}
-.detail-close:hover { background:rgba(255,255,255,.2);color:#fff }
-.prod-body { flex-shrink:0 }
-.prod-tag {
-  font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--cat-secondary);font-weight:600;margin-bottom:2px;display:block;opacity:.82;
-}
-.prod-name {
-  font-family:var(--font-serif);
-  font-size:clamp(.8rem,1.25vw,.98rem);
-  color:var(--cat-heading);font-weight:600;
-  line-height:1.25;letter-spacing:-.01em;margin-bottom:2px;
-}
-.prod-brief { font-size:.66rem;color:var(--cat-text-muted);line-height:1.45;margin-bottom:5px }
-.price-row {
-  display:flex;align-items:center;justify-content:space-between;
-  gap:5px;flex-wrap:wrap;
-}
-.prod-price { font-size:1rem;font-weight:700;color:var(--cat-primary);letter-spacing:-.02em }
-.wa-btn {
-  display:inline-flex;align-items:center;gap:4px;
-  padding:6px 11px;
-  background:linear-gradient(135deg,#25d366,#128c7e);
-  color:#fff;border:none;border-radius:100px;
-  font-family:var(--font-sans);font-size:.6rem;
-  font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  cursor:pointer;text-decoration:none;
-  box-shadow:0 3px 10px rgba(37,211,102,.26);
-  transition:transform .2s,box-shadow .2s;flex-shrink:0;
-}
-.wa-btn:hover { transform:translateY(-2px);box-shadow:0 5px 14px rgba(37,211,102,.36) }
-.wa-btn svg { width:12px;height:12px;flex-shrink:0 }
-
-/* Filler */
-.filler {
-  background:linear-gradient(155deg,#2a4a2e,#1e3a24);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:28px;gap:10px;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 360px;
+  max-width: 92vw;
+  background: var(--card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(212,175,55,0.2);
+  border: 1px solid rgba(255,255,255,0.5);
+  z-index: 500;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
 }
 
-/* Back cover */
-.back-left {
-  background:linear-gradient(155deg,#1e3a24,#0d1e12);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:32px 24px;gap:12px;
-}
-.back-right {
-  background:linear-gradient(155deg,#0d1e12,#1a2e0f);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:32px 24px;gap:9px;
-}
-.back-logo {
-  width:60px;height:60px;object-fit:contain;
-  border-radius:11px;box-shadow:0 7px 22px rgba(0,0,0,.5);opacity:.88;
-}
-.back-title {
-  font-family:var(--font-serif);font-size:1.5rem;color:#fff;
-  font-weight:700;text-align:center;
-}
-.back-text {
-  font-size:.72rem;color:rgba(255,255,255,.42);
-  text-align:center;line-height:1.65;
-}
-.back-wa {
-  display:inline-flex;align-items:center;gap:6px;
-  padding:11px 18px;background:linear-gradient(135deg,#25d366,#128c7e);
-  color:#fff;border-radius:100px;font-size:.68rem;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
-  box-shadow:0 4px 14px rgba(37,211,102,.3);transition:transform .2s;
-}
-.back-wa:hover { transform:translateY(-2px) }
-.back-wa svg { width:14px;height:14px }
-.back-url { font-size:.58rem;color:rgba(255,255,255,.27);letter-spacing:.1em }
-.back-stamp { font-size:clamp(1.8rem,4.5vw,3.2rem);opacity:.3 }
-.back-slogan {
-  font-family:var(--font-serif);font-style:italic;
-  font-size:clamp(.9rem,1.8vw,1.3rem);
-  color:rgba(255,255,255,.5);text-align:center;line-height:1.4;
+body.dark-theme .product-dropdown {
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Page numbers */
-.pg-num {
-  position:absolute;bottom:9px;font-size:.52rem;
-  letter-spacing:.1em;color:rgba(30,58,36,.25);font-weight:500;z-index:5;
-}
-.pg-num-left { left:12px } .pg-num-right { right:12px }
-
-/* Flip animations */
-.page-flip-out-left  { animation:fol .4s cubic-bezier(.4,0,.2,1) forwards }
-.page-flip-in-right  { animation:fir .4s cubic-bezier(.4,0,.2,1) forwards }
-.page-flip-out-right { animation:for_ .4s cubic-bezier(.4,0,.2,1) forwards }
-.page-flip-in-left   { animation:fil .4s cubic-bezier(.4,0,.2,1) forwards }
-@keyframes fol  {from{transform:perspective(1600px) rotateY(0) scale(1);opacity:1}to{transform:perspective(1600px) rotateY(-10deg) scale(.97);opacity:0}}
-@keyframes fir  {from{transform:perspective(1600px) rotateY(10deg) scale(.97);opacity:0}to{transform:perspective(1600px) rotateY(0) scale(1);opacity:1}}
-@keyframes for_ {from{transform:perspective(1600px) rotateY(0) scale(1);opacity:1}to{transform:perspective(1600px) rotateY(10deg) scale(.97);opacity:0}}
-@keyframes fil  {from{transform:perspective(1600px) rotateY(-10deg) scale(.97);opacity:0}to{transform:perspective(1600px) rotateY(0) scale(1);opacity:1}}
-
-/* Nav */
-.cat-nav {
-  display:flex;align-items:center;gap:14px;
-  margin-top:18px;position:relative;z-index:1;
-}
-.nav-btn {
-  width:44px;height:44px;border:1.5px solid rgba(30,58,36,.16);border-radius:50%;
-  background:rgba(244,239,233,.9);backdrop-filter:blur(8px);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  color:var(--cat-primary);transition:all .2s;
-  box-shadow:3px 3px 10px rgba(30,58,36,.1);
-}
-.nav-btn:hover:not(:disabled) { background:var(--cat-primary);color:#fff;transform:scale(1.08) }
-.nav-btn:disabled { opacity:.25;cursor:not-allowed }
-.nav-btn svg { width:17px;height:17px }
-.page-indicator {
-  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--cat-text-muted);font-weight:500;
-  min-width:80px;text-align:center;line-height:1.4;
+.product-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
-/* Floating INICIO */
-.btn-inicio {
-  position:fixed;bottom:26px;left:50%;transform:translateX(-50%);
-  z-index:500;display:none;align-items:center;gap:6px;
-  padding:9px 20px;background:var(--cat-primary);color:#fff;
-  border:none;border-radius:100px;font-family:var(--font-sans);
-  font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  cursor:pointer;white-space:nowrap;
-  box-shadow:0 5px 18px rgba(30,58,36,.32),0 2px 6px rgba(0,0,0,.18);
-  transition:opacity .25s,transform .25s,box-shadow .2s;
-}
-.btn-inicio.visible { display:inline-flex }
-.btn-inicio:hover {
-  background:var(--cat-primary-light);
-  transform:translateX(-50%) translateY(-2px);
-  box-shadow:0 8px 24px rgba(30,58,36,.42);
-}
-.btn-inicio svg { width:12px;height:12px;flex-shrink:0 }
-
-/* Responsive catalog */
-.book-scene.mobile-view .prod-body {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-.book-scene.mobile-view .price-row {
-  justify-content: center !important;
-  width: 100% !important;
-  gap: 10px !important;
+.dropdown-header {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-@media(max-width:520px){
-  #view-catalog { padding:14px 10px 28px }
-  .book-scene { max-width:340px !important }
-  .book { aspect-ratio:.75/1 !important }
-  .book-spine { display:none !important }
-  .view-toggle { display:none }
-  .catalog-header { padding-top:16px }
+body.dark-theme .dropdown-header { color: var(--accent); }
+
+.dropdown-list {
+  list-style: none;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 6px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
-@media(max-width:380px){
-  .prod-price { font-size:.88rem }
-  .wa-btn { font-size:.56rem;padding:5px 9px }
-  .product-slot { padding:12px 10px;gap:5px }
+
+.dropdown-list::-webkit-scrollbar { width: 4px; }
+.dropdown-list::-webkit-scrollbar-track { background: transparent; }
+.dropdown-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.dropdown-list li a {
+  display: block;
+  padding: 9px 20px;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, padding-left 0.15s;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.dropdown-list li a strong { color: var(--primary); }
+body.dark-theme .dropdown-list li a strong { color: var(--accent); }
+
+.dropdown-list li a:hover {
+  background: rgba(144,157,67,0.1);
+  color: var(--primary);
+  padding-left: 26px;
+}
+
+body.dark-theme .dropdown-list li a:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .product-dropdown { min-width: min(340px, 92vw); }
 }
 </style>
+
+
 </head>
 
 <body>
 
 
-
-<!-- ══════════════════════════════════
-     VISTA DESLIZANTE (original)
-     ══════════════════════════════════ -->
-<div id="view-original">
 
 <div class="noise-overlay"></div>
 <svg width="0" height="0" style="position:absolute;visibility:hidden;" aria-hidden="true">
@@ -2557,16 +2194,6 @@ body.catalog-active .whatsapp-button { display:none !important }
       <a href="#consultas">Consultas</a>
     </nav>
     <div class="header-actions">
-      <div class="view-switcher">
-        <button class="vs-btn active" id="vsBtnOriginal" onclick="switchView('original')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <span>Vista Deslizante</span>
-        </button>
-        <button class="vs-btn" id="vsBtnCatalog" onclick="switchView('catalog')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="10" rx="1"/><rect x="3" y="16" width="8" height="5" rx="1"/><rect x="13" y="16" width="8" height="5" rx="1"/></svg>
-          <span>Vista Catálogo</span>
-        </button>
-      </div>
       <button id="themeToggle" class="theme-button">
         <span id="themeText">MODO OSCURO</span>
         <div class="theme-icon-wrapper">
@@ -2591,10 +2218,47 @@ body.catalog-active .whatsapp-button { display:none !important }
     </h1>
     <p class="subtitle animate-on-scroll">LA MEJOR SELECCIÓN DE ACEITES DE OLIVA PREMIUM</p>
     <p class="description animate-on-scroll">Elegimos cuidadosamente cada marca para llevar a tu mesa solo la excelencia y pureza de las mejores regiones olivícolas.</p>
-    <a href="#productos" class="cta-button animate-on-scroll">
-      <span>DESCUBRE NUESTROS PRODUCTOS</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+    <div class="cta-wrapper animate-on-scroll">
+      <button class="cta-button" id="ctaDropdownBtn" onclick="toggleProductDropdown(event)" type="button">
+        <span>DESCUBRE NUESTROS PRODUCTOS</span>
+        <span class="olive-icon-wrap" aria-hidden="true">
+          <svg class="olive-branch-svg" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+            <path d="M22 38 Q18 28 14 18 Q12 12 16 8" stroke="#2d5a1b" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M18 24 Q12 22 10 16" stroke="#2d5a1b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M16 18 Q22 14 24 8" stroke="#2d5a1b" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="11" cy="18" rx="4" ry="2" fill="#4a8c2a" transform="rotate(-30 11 18)"/>
+            <ellipse cx="22" cy="10" rx="4" ry="2" fill="#4a8c2a" transform="rotate(20 22 10)"/>
+            <ellipse cx="14" cy="22" rx="3.5" ry="1.8" fill="#5ca033" transform="rotate(-15 14 22)"/>
+            <ellipse cx="20" cy="16" rx="3.5" ry="1.8" fill="#5ca033" transform="rotate(35 20 16)"/>
+            <ellipse cx="26" cy="36" rx="5" ry="6.5" fill="#1e5c1e" stroke="#0d3d0d" stroke-width="0.8"/>
+            <ellipse cx="24.5" cy="33.5" rx="1.5" ry="2" fill="#2d8c2d" opacity="0.5"/>
+            <ellipse cx="24.5" cy="33" rx="1.2" ry="1.8" fill="rgba(255,255,255,0.2)"/>
+            <path d="M26 30 Q27 28 28 26" stroke="#2d5a1b" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+      <div class="product-dropdown" id="productDropdown" aria-hidden="true">
+        <div class="dropdown-header">Nuestros Productos</div>
+        <ul class="dropdown-list">
+          <li><a href="#" onclick="scrollToProduct(1); return false;">&#x1FAD2; Aceite Tupel&#237; Extra Virgen x 250 ml &mdash; <strong>$8.900</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(14); return false;">&#x1FAD2; Aceite Tupel&#237; Extra Virgen x 500 ml &mdash; <strong>$14.700</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(3); return false;">&#x1FAD2; Oliovita Mediterr&#225;neo Virgen Extra x 250 ml &mdash; <strong>$6.700</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(4); return false;">&#x1FAD2; Oliovita Cl&#225;sico Virgen Extra x 250 ml &mdash; <strong>$7.300</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(5); return false;">&#x1FAD2; Aceite Laur Virgen Extra x 250 ml &mdash; <strong>$10.900</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(6); return false;">&#x1FAD2; Aceite Zuelo Virgen Extra Original x 250 ml &mdash; <strong>$11.700</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(12); return false;">&#x1FAD2; Aceite Zuelo Virgen Extra Blend x 500 ml &mdash; <strong>$17.600</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(9); return false;">&#x1FAD2; Familia Zuccardi Coratina x 250 ml &mdash; <strong>$11.400</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(10); return false;">&#x1FAD2; Familia Zuccardi Genovesa x 250 ml &mdash; <strong>$11.400</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(17); return false;">&#x1FAD2; Familia Zuccardi Genovesa x 500 ml &mdash; <strong>$19.900</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(11); return false;">&#x1FAD2; Familia Zuccardi Picual x 250 ml &mdash; <strong>$11.400</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(13); return false;">&#x1FAD2; Hilal Virgen Extra Do&#241;a Sof&#237;a x 500 ml PET &mdash; <strong>$12.900</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(15); return false;">&#x1FAD2; Hilal Virgen Extra Do&#241;a Sof&#237;a x 500 ml Vidrio &mdash; <strong>$15.200</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(16); return false;">&#x1FAD2; Hilal Virgen Extra Do&#241;a Sof&#237;a x 1000 ml &mdash; <strong>$23.900</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(7); return false;">&#x1F376; Aceto Bals&#225;mico Oliovita Reducci&#243;n x 250 ml &mdash; <strong>$4.800</strong></a></li>
+          <li><a href="#" onclick="scrollToProduct(8); return false;">&#x1F376; Aceto Bals&#225;mico Casalta x 250 ml &mdash; <strong>$4.000</strong></a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2734,590 +2398,13 @@ body.catalog-active .whatsapp-button { display:none !important }
   </div>
 </footer>
 
-</div><!-- /#view-original -->
 
 
-<!-- ══════════════════════════════════
-     VISTA CATÁLOGO (flipbook)
-     ══════════════════════════════════ -->
-<div id="view-catalog">
-
-  <div class="catalog-header">
-    <div class="header-logo-wrap">
-      <img src="data:image/jpeg;base64,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" alt="Olivery" class="header-logo-img"/>
-      <div class="header-brand">Olivery</div>
-    </div>
-    <div class="header-year">Catálogo de productos · Temporada 2026</div>
-    <div class="header-hint">Deslice hacia la derecha para navegar por nuestros productos</div>
-    <button class="cat-back-to-site" onclick="switchView('original')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      Vista Deslizante
-    </button>
-  </div>
-
-  <div class="view-toggle">
-    <button class="view-btn" id="btnMobile" onclick="setCatView('mobile')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-      Vista móvil
-    </button>
-    <button class="view-btn active" id="btnPC" onclick="setCatView('pc')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      Vista PC
-    </button>
-  </div>
-
-  <div class="book-scene" id="bookScene">
-    <div class="book" id="book">
-      <div class="book-shadow"></div>
-      <div class="book-spine"></div>
-      <div class="page page-cover" id="page-0">
-  <div class="page-half page-left cover-left">
-    <img src="data:image/jpeg;base64,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" alt="Olivery" class="cover-logo"/>
-    <div class="cover-title">Olivery</div>
-    <div class="cover-divider"></div>
-    <div class="cover-sub">Boutique de Delicatessen</div>
-    <div class="cover-tagline">La excelencia del aceite de oliva en tu mesa</div>
-    <div class="cover-badge">CÓRDOBA · ARGENTINA</div>
-  </div>
-  <div class="page-half page-right cover-right">
-    <div class="cover-cat-label">Catálogo<br/>de Productos</div>
-    <div class="cover-divider"></div>
-    <ul class="cover-items-list"><li>Aceites Extra Virgen</li><li>Familia Zuccardi</li><li>Aceites Hilal Artesanales</li><li>Aceto Balsámico</li></ul>
-    <div class="cover-hint">Deslizá → para ver productos</div>
-  </div>
-  <span class="pg-num pg-num-right">1</span>
-</div>
-<div class="page hidden" id="page-1">
-  <div class="page-half page-left"><div class="product-slot" data-id="tupeli-250">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="tupeli-250.png" alt="Aceite Tupelí Extra Virgen x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% primera prensa en frío</li><li>Envase de vidrio oscuro con pico dosificador</li><li>Origen: Mendoza, Argentina</li><li>Perfil: frutado verde, amargo medio, picante ligero</li><li>Ideal para ensaladas, carnes y uso en crudo</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Envase Vidrio</span>
-    <div class="prod-name">Aceite Tupelí Extra Virgen x 250 ml</div>
-    <div class="prod-brief">Extra virgen de primera prensa. Pico dosificador.</div>
-    <div class="price-row"><span class="prod-price">$ 8.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceite%20Tupel%C3%AD%20Extra%20Virgen%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="tupeli-500">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="tupeli-500.png" alt="Aceite Tupelí Extra Virgen x 500 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% primera prensa en frío</li><li>Envase de vidrio oscuro con pico dosificador</li><li>Origen: Mendoza, Argentina</li><li>Presentación familiar de mayor rendimiento</li><li>Ideal para ensaladas, carnes y uso en crudo</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Envase Vidrio</span>
-    <div class="prod-name">Aceite Tupelí Extra Virgen x 500 ml</div>
-    <div class="prod-brief">Extra virgen de primera prensa. Pico dosificador.</div>
-    <div class="price-row"><span class="prod-price">$ 14.700</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceite%20Tupel%C3%AD%20Extra%20Virgen%20x%20500%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">2</span><span class="pg-num pg-num-right">3</span>
-</div>
-<div class="page hidden" id="page-2">
-  <div class="page-half page-left"><div class="product-slot" data-id="oliovita-med">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="oliovita-mediterraneo.png" alt="Oliovita Mediterráneo Virgen Extra x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Blend de variedades mediterráneas seleccionadas</li><li>Envase PET liviano y práctico</li><li>Origen: Argentina</li><li>Perfil: suave, frutado maduro, levemente dulce</li><li>Versátil: apto para cocción y uso en crudo</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Envase PET</span>
-    <div class="prod-name">Oliovita Mediterráneo Virgen Extra x 250 ml</div>
-    <div class="prod-brief">Blend equilibrado de estilo europeo.</div>
-    <div class="price-row"><span class="prod-price">$ 6.700</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Oliovita%20Mediterr%C3%A1neo%20Virgen%20Extra%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="oliovita-clas">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="oliovita-clasico.png" alt="Oliovita Clásico Virgen Extra x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Blend clásico de olivas seleccionadas</li><li>Envase PET liviano y práctico</li><li>Origen: Argentina</li><li>Perfil: neutro, suave, muy versátil</li><li>Ideal para cocción cotidiana</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Envase PET</span>
-    <div class="prod-name">Oliovita Clásico Virgen Extra x 250 ml</div>
-    <div class="prod-brief">Sabor suave y equilibrado para el día a día.</div>
-    <div class="price-row"><span class="prod-price">$ 7.300</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Oliovita%20Cl%C3%A1sico%20Virgen%20Extra%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">4</span><span class="pg-num pg-num-right">5</span>
-</div>
-<div class="page hidden" id="page-3">
-  <div class="page-half page-left"><div class="product-slot" data-id="laur">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="laur.png" alt="Aceite Laur Virgen Extra x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Ganador de premios internacionales</li><li>Envase de vidrio con pico dosificador</li><li>Origen: La Rioja, Argentina</li><li>Perfil: frutado intenso, amargo y picante pronunciados</li><li>Para paladares exigentes y uso gourmet</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Aceite Laur Virgen Extra x 250 ml</div>
-    <div class="prod-brief">De la mejor olivícola del mundo.</div>
-    <div class="price-row"><span class="prod-price">$ 10.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceite%20Laur%20Virgen%20Extra%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="zuelo-orig">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="zuelo-original.png" alt="Aceite Zuelo Virgen Extra Original x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Producido por Familia Zuccardi</li><li>Envase de vidrio oscuro con pico dosificador</li><li>Origen: Mendoza, Argentina</li><li>Perfil: frutado fresco, herbáceo, amargo medio</li><li>Uso en crudo, carpaccios y pasta</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Aceite Zuelo Virgen Extra Original x 250 ml</div>
-    <div class="prod-brief">La frescura de la Familia Zuccardi.</div>
-    <div class="price-row"><span class="prod-price">$ 11.700</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceite%20Zuelo%20Virgen%20Extra%20Original%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">6</span><span class="pg-num pg-num-right">7</span>
-</div>
-<div class="page hidden" id="page-4">
-  <div class="page-half page-left"><div class="product-slot" data-id="zuelo-500">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="zuelo-500.png" alt="Aceite Zuelo Virgen Extra Blend Original x 500 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Producido por Familia Zuccardi</li><li>Presentación 500 ml para uso intensivo</li><li>Envase de vidrio oscuro con pico dosificador</li><li>Perfil: frutado fresco, herbáceo, amargo medio</li><li>Ideal para hogares con alto consumo</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Aceite Zuelo Virgen Extra Blend Original x 500 ml</div>
-    <div class="prod-brief">La frescura de la Familia Zuccardi en presentación generosa.</div>
-    <div class="price-row"><span class="prod-price">$ 17.600</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceite%20Zuelo%20Virgen%20Extra%20Blend%20Original%20x%20500%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="coratina">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="coratina_final.png" alt="Familia Zuccardi Coratina x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% Coratina de origen italiano</li><li>Alto contenido de polifenoles antioxidantes</li><li>Excelente estabilidad oxidativa</li><li>Perfil: muy intenso, amargo pronunciado, picante fuerte</li><li>Para ensaladas verdes, bruschetta y carnes rojas</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE Varietal · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Familia Zuccardi Coratina x 250 ml</div>
-    <div class="prod-brief">Intenso, amargo y picante. Gran estabilidad en el tiempo.</div>
-    <div class="price-row"><span class="prod-price">$ 11.400</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Familia%20Zuccardi%20Coratina%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">8</span><span class="pg-num pg-num-right">9</span>
-</div>
-<div class="page hidden" id="page-5">
-  <div class="page-half page-left"><div class="product-slot" data-id="genovesa">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="genovesa_final.png" alt="Familia Zuccardi Genovesa x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% Genovesa</li><li>Cosecha temprana para mayor frescura</li><li>Perfil: frutado de manzana verde, tomate y alcachofa</li><li>Amargo ligero, picante suave</li><li>Ideal para pescados, mariscos y vegetales</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE Varietal · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Familia Zuccardi Genovesa x 250 ml</div>
-    <div class="prod-brief">Delicado y complejo. Frutado de manzana y hierbas frescas.</div>
-    <div class="price-row"><span class="prod-price">$ 11.400</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Familia%20Zuccardi%20Genovesa%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="picual">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="picual_final.png" alt="Familia Zuccardi Picual x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% Picual</li><li>Alta resistencia a la oxidación</li><li>Perfil: frutado de tomate y higuera, almendrado</li><li>Amargo y picante medios, muy equilibrado</li><li>Versátil: cocción, ensaladas y frituras</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE Varietal · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Familia Zuccardi Picual x 250 ml</div>
-    <div class="prod-brief">Aromático y fresco. Amargos y picantes medios.</div>
-    <div class="price-row"><span class="prod-price">$ 11.400</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Familia%20Zuccardi%20Picual%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">10</span><span class="pg-num pg-num-right">11</span>
-</div>
-
-<div class="page hidden" id="page-6">
-  <div class="page-half page-left"><div class="product-slot" data-id="genovesa-500">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="genovesa-500.png" alt="Familia Zuccardi Genovesa x 500 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Varietal 100% Genovesa en presentación de 500 ml</li><li>Cosecha temprana para mayor frescura y complejidad</li><li>Perfil: frutado de manzana verde, tomate y alcachofa</li><li>Amargo ligero, picante suave, ideal para uso diario</li><li>Envase de vidrio oscuro con pico dosificador antigoteo</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">&#x2715; Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE Varietal &middot; Vidrio &middot; Pico Dosificador</span>
-    <div class="prod-name">Familia Zuccardi Genovesa x 500 ml</div>
-    <div class="prod-brief">Delicado y complejo. Frutado de manzana y hierbas frescas.</div>
-    <div class="price-row"><span class="prod-price">$ 19.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Familia%20Zuccardi%20Genovesa%20x%20500%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div style="height:100%; display:flex; justify-content:center; align-items:center; opacity:0.04; font-size:120px; filter:grayscale(100%);">🫒</div></div>
-  <span class="pg-num pg-num-left">12</span><span class="pg-num pg-num-right">13</span>
-</div><div class="page hidden" id="page-7">
-  <div class="page-half page-left"><div class="product-slot" data-id="hilal-pet">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="hilal.png" alt="Hilal Virgen Extra Doña Sofía x 500 ml PET" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Producción artesanal y agroecológica certificada</li><li>Primera presión en frío, sin aditivos</li><li>Envase PET de alta densidad (HDPE)</li><li>Origen: Córdoba, Argentina</li><li>Perfil: frutado verde intenso, notas herbáceas</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE Artesanal · Envase PET Alta Densidad</span>
-    <div class="prod-name">Hilal Virgen Extra Doña Sofía x 500 ml PET</div>
-    <div class="prod-brief">Artesanal, agroecológico y de primera presión en frío.</div>
-    <div class="price-row"><span class="prod-price">$ 12.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%20500%20ml%20PET%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <div class="page-half page-right"><div class="product-slot" data-id="hilal-vidrio">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="hilal-55-v.png" alt="Hilal Virgen Extra Doña Sofía x 500 ml Vidrio" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Producción artesanal y agroecológica certificada</li><li>Primera presión en frío, sin aditivos</li><li>Envase de vidrio oscuro con pico dosificador</li><li>Origen: Córdoba, Argentina</li><li>Presentación premium para regalo o uso gourmet</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">AOVE Artesanal · Vidrio · Pico Dosificador</span>
-    <div class="prod-name">Hilal Virgen Extra Doña Sofía x 500 ml Vidrio</div>
-    <div class="prod-brief">Artesanal, agroecológico y de primera presión en frío.</div>
-    <div class="price-row"><span class="prod-price">$ 15.200</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%20500%20ml%20Vidrio%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">12</span><span class="pg-num pg-num-right">13</span>
-</div>
-<div class="page hidden" id="page-8">
-  <div class="page-half page-left">
-    <div class="product-slot" data-id="hilal-1000">
-      <div class="prod-img-wrap" onclick="toggleDetail(this)">
-        <img src="hilal-1L.png" alt="Hilal Virgen Extra Doña Sofía x 1000 ml" class="prod-image">
-        <div class="prod-detail-panel"><ul class="detail-list"><li>Producción artesanal y agroecológica certificada</li><li>Primera presión en frío, sin aditivos</li><li>Envase PET de alta densidad de 1000 ml</li><li>Origen: Córdoba, Argentina</li><li>Ideal para el uso frecuente y económico</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-        <div class="detail-hint">Tocá para ver características</div>
-      </div>
-      <div class="prod-body">
-        <span class="prod-tag">AOVE Artesanal · Envase PET 1L</span>
-        <div class="prod-name">Hilal Virgen Extra Doña Sofía x 1000 ml</div>
-        <div class="prod-brief">Artesanal, agroecológico y de primera presión en frío. Rendimiento óptimo.</div>
-        <div class="price-row"><span class="prod-price">$ 23.900</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Hilal%20Virgen%20Extra%20Do%C3%B1a%20Sof%C3%ADa%20x%201000%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-      </div>
-    </div></div>
-
-  <div class="page-half page-right"><div class="product-slot" data-id="aceto-oliovita">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="oliovita.png" alt="Aceto Balsámico Oliovita Reducción x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Reducción balsámica de mosto de uva</li><li>Textura densa y brillante</li><li>Sabor: dulce-ácido con notas de frutos rojos</li><li>Ideal para carnes, quesos, ensaladas y postres</li><li>Botella de vidrio con pico dosificador</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">Aceto Balsámico · Botella Vidrio</span>
-    <div class="prod-name">Aceto Balsámico Oliovita Reducción x 250 ml</div>
-    <div class="prod-brief">Textura espesa y untuosa de reducción clásica.</div>
-    <div class="price-row"><span class="prod-price">$ 4.800</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceto%20Bals%C3%A1mico%20Oliovita%20Reducci%C3%B3n%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  <span class="pg-num pg-num-left">14</span><span class="pg-num pg-num-right">15</span>
-</div>
-<div class="page hidden" id="page-9">
-<div class="page-half page-left"><div class="product-slot" data-id="casalta">
-  <div class="prod-img-wrap" onclick="toggleDetail(this)">
-    <img src="casalta.png" alt="Aceto Balsámico Casalta x 250 ml" class="prod-image">
-    <div class="prod-detail-panel"><ul class="detail-list"><li>Reducción artesanal de mosto de uva seleccionado</li><li>Textura untuosa y concentrada</li><li>Sabor: complejo, dulce con retrogusto ahumado</li><li>Versátil: maridaje con quesos, frutas y helados</li><li>Botella de vidrio con pico dosificador</li></ul><button class="detail-close" onclick="event.stopPropagation();toggleDetail(this.closest('.prod-img-wrap'))">✕ Cerrar</button></div>
-    <div class="detail-hint">Tocá para ver características</div>
-  </div>
-  <div class="prod-body">
-    <span class="prod-tag">Aceto Balsámico · Botella Vidrio</span>
-    <div class="prod-name">Aceto Balsámico Casalta x 250 ml</div>
-    <div class="prod-brief">Reducción balsámica premium. Ideal para carnes y ensaladas.</div>
-    <div class="price-row"><span class="prod-price">$ 4.000</span><a class="wa-btn" href="https://wa.me/3512402359?text=Hola!%20Me%20interesa%20el%20producto%3A%20Aceto%20Bals%C3%A1mico%20Casalta%20x%20250%20ml%20visto%20en%20el%20cat%C3%A1logo%20%F0%9F%AB%92" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Comprar</a></div>
-  </div>
-</div></div>
-  
-  <div class="page-half page-right"><div style="height:100%; display:flex; justify-content:center; align-items:center; opacity:0.04; font-size:120px; filter:grayscale(100%);">🫒</div></div>
-  <span class="pg-num pg-num-left">16</span><span class="pg-num pg-num-right">17</span>
-</div>
-<div class="page page-back hidden" id="page-10">
-  <div class="page-half page-left back-left">
-    <img src="data:image/jpeg;base64,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" alt="Olivery" class="back-logo"/>
-    <div class="back-title">Olivery</div>
-    <div class="cover-divider"></div>
-    <div class="back-text">Pedidos directos por WhatsApp</div>
-    <a href="https://wa.me/3512402359?text=Hola!%20Quiero%20hacer%20un%20pedido%20del%20cat%C3%A1logo" target="_blank" rel="noopener" class="back-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Hacer pedido</a>
-    <div class="back-url">olivery.com.ar</div>
-  </div>
-  <div class="page-half page-right back-right">
-    <div class="back-stamp">🫒</div>
-    <div class="back-slogan">Calidad y pureza<br/>en cada gota</div>
-    <div class="cover-divider"></div>
-    <div class="back-text" style="opacity:.45">Temporada 2026</div>
-  </div>
-  <span class="pg-num pg-num-right">19</span>
-</div>
-    </div>
-  </div>
-
-  <nav class="cat-nav">
-    <button class="nav-btn" id="btnPrev" disabled aria-label="Anterior">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <div class="page-indicator" id="pageIndicator">Portada</div>
-    <button class="nav-btn" id="btnNext" aria-label="Siguiente">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </nav>
-
-</div><!-- /#view-catalog -->
-
-<!-- Floating INICIO (catalog only) -->
-<button class="btn-inicio" id="btnInicio" onclick="goHome()" aria-label="Volver al inicio">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
-  Inicio
-</button>
 
 
 <!-- ════════════════════
      SCRIPTS
      ════════════════════ -->
-<script>
-/* ─── View switcher ─── */
-function switchView(v) {
-  const isCatalog = (v === 'catalog');
-  document.body.classList.toggle('catalog-active', isCatalog);
-  document.getElementById('vsBtnOriginal').classList.toggle('active', !isCatalog);
-  document.getElementById('vsBtnCatalog').classList.toggle('active', isCatalog);
-  if (!isCatalog) document.getElementById('btnInicio').classList.remove('visible');
-  if (isCatalog && catCur !== 0) catFlip(0, 'prev');
-  if (!isCatalog) {
-    document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach(el => {
-      observer.observe(el);
-    });
-  }
-  if (isCatalog && window.innerWidth <= 520) setCatView('mobile');
-}
-
-/* ═══════════════════════════════════════════════════
-   Catalog flipbook – dual-mode navigation
-   PC:     flips through full pages (2 products per spread)
-   MOBILE: flips through individual product slots (1 product at a time)
-   ═══════════════════════════════════════════════════ */
-
-const SPREAD_TOTAL = 11; // page-0 … page-8
-let catMobile = false;
-let catCur = 0, catBusy = false;
-
-const catPages = Array.from({length:SPREAD_TOTAL}, (_,i) => document.getElementById('page-'+i));
-const btnPrev  = document.getElementById('btnPrev');
-const btnNext  = document.getElementById('btnNext');
-const indicator = document.getElementById('pageIndicator');
-const scene    = document.getElementById('bookScene');
-
-/* ── Product names for individual slots, ordered as they appear in HTML ── */
-const PRODUCT_NAMES = [
-  "Aceite Tupelí Extra Virgen 250 ml",
-  "Aceite Tupelí Extra Virgen 500 ml",
-  "Oliovita Mediterráneo Virgen Extra",
-  "Oliovita Clásico Virgen Extra",
-  "Aceite Laur Virgen Extra",
-  "Aceite Zuelo Virgen Extra Original 250 ml",
-  "Aceite Zuelo Virgen Extra Blend 500 ml",
-  "Familia Zuccardi Coratina",
-  "Familia Zuccardi Genovesa",
-  "Familia Zuccardi Picual",
-  "Familia Zuccardi Genovesa 500 ml",
-  "Hilal Virgen Extra Doña Sofía PET",
-  "Hilal Virgen Extra Doña Sofía Vidrio",
-  "Aceite Hilal Virgen Extra Doña Sofía 1000 ml",
-  "Aceto Balsámico Oliovita Reducción",
-  "Aceto Balsámico Casalta"
-];
-
-/* Spread labels for PC (2 products per page) */
-const SPREAD_LABELS = [
-  "Portada",
-  "Tupelí 250 ml · Tupelí 500 ml",
-  "Oliovita Mediterráneo · Oliovita Clásico",
-  "Laur · Zuelo Original 250 ml",
-  "Zuelo Blend 500 ml · Zuccardi Coratina",
-  "Zuccardi Genovesa · Zuccardi Picual",
-  "Genovesa 500 ml",
-  "Hilal PET · Hilal Vidrio",
-  "Hilal 1000 ml · Aceto Oliovita",
-  "Aceto Casalta",
-  "Contraportada"
-];
-
-/*
-  Mobile sequence: a flat list of "steps".
-  Each step = { spread: <page-N index>, side: 'left'|'right'|'both' }
-  - 'both' = portada/contraportada (show full page)
-  - 'left'/'right' = show only that product half
-*/
-const MOB_SEQ = [
-  { spread:0, side:'both' },   // Portada
-  { spread:1, side:'left'  },  // Tupelí 250
-  { spread:1, side:'right' },  // Tupelí 500
-  { spread:2, side:'left'  },  // Oliovita Med
-  { spread:2, side:'right' },  // Oliovita Clás
-  { spread:3, side:'left'  },  // Laur
-  { spread:3, side:'right' },  // Zuelo Orig 250
-  { spread:4, side:'left'  },  // Zuelo 500
-  { spread:4, side:'right' },  // Coratina
-  { spread:5, side:'left'  },  // Genovesa
-  { spread:5, side:'right' },  // Picual
-  { spread:6, side:'left'  },  // Genovesa 500
-  { spread:7, side:'left'  },  // Hilal PET
-  { spread:7, side:'right' },  // Hilal Vidrio
-  { spread:8, side:'left'  },  // Hilal 1000
-  { spread:8, side:'right' },  // Aceto Oliovita
-  { spread:9, side:'left'  },  // Aceto Casalta
-  { spread:10, side:'both' },  // Contraportada
-];
-
-function getTotal() { return catMobile ? MOB_SEQ.length : SPREAD_TOTAL; }
-
-function getLabel(idx) {
-  if (!catMobile) return SPREAD_LABELS[idx] || '';
-  const step = MOB_SEQ[idx];
-  if (step.side === 'both') return idx === 0 ? 'Portada' : 'Contraportada';
-  // product index: count product steps before this one
-  let pi = 0;
-  for (let i = 1; i < idx; i++) { if (MOB_SEQ[i].side !== 'both') pi++; }
-  return PRODUCT_NAMES[pi] || ('Producto ' + (pi+1));
-}
-
-/* Show/hide the correct page and half */
-function showStep(idx) {
-  // Hide all spreads
-  catPages.forEach(p => { p.classList.add('hidden'); p.style.zIndex = ''; });
-
-  if (!catMobile) {
-    // PC mode: show the full spread
-    catPages[idx].classList.remove('hidden');
-    // reset mobile half visibility
-    catPages[idx].querySelectorAll('.page-half').forEach(h => {
-      h.style.display = '';
-    });
-  } else {
-    // Mobile mode
-    const step = MOB_SEQ[idx];
-    const page = catPages[step.spread];
-    page.classList.remove('hidden');
-    const halves = page.querySelectorAll(':scope > .page-half');
-    if (step.side === 'both') {
-      halves.forEach(h => h.style.display = '');
-    } else {
-      halves.forEach(h => {
-        if (step.side === 'left')  h.style.display = h.classList.contains('page-left')  ? '' : 'none';
-        if (step.side === 'right') h.style.display = h.classList.contains('page-right') ? '' : 'none';
-      });
-    }
-  }
-}
-
-function catFlip(idx, dir) {
-  const total = getTotal();
-  if (catBusy || idx === catCur || idx < 0 || idx >= total) return;
-  catBusy = true;
-
-  const outC = dir==='next' ? 'page-flip-out-left' : 'page-flip-out-right';
-  const inC  = dir==='next' ? 'page-flip-in-right' : 'page-flip-in-left';
-
-  // Identify current visible spread
-  const curSpread = catMobile ? catPages[MOB_SEQ[catCur].spread] : catPages[catCur];
-  const newSpread = catMobile ? catPages[MOB_SEQ[idx].spread]    : catPages[idx];
-
-  const sameSpread = (curSpread === newSpread);
-
-  if (sameSpread) {
-    // Same underlying page, just swap halves
-    showStep(idx);
-    catCur = idx; catBusy = false; catUpdate();
-    return;
-  }
-
-  // Different spread → animate
-  showStep(idx); // make new spread visible first
-  newSpread.style.zIndex = 1;
-  curSpread.style.zIndex = 2;
-  curSpread.classList.remove('hidden');
-
-  curSpread.classList.add(outC);
-  newSpread.classList.add(inC);
-
-  curSpread.addEventListener('animationend', () => {
-    curSpread.classList.remove(outC);
-    curSpread.classList.add('hidden');
-    curSpread.style.zIndex = '';
-    newSpread.classList.remove(inC);
-    newSpread.style.zIndex = '';
-    catCur = idx; catBusy = false; catUpdate();
-  }, {once:true});
-}
-
-function catUpdate() {
-  const total = getTotal();
-  btnPrev.disabled = catCur === 0;
-  btnNext.disabled = catCur === total - 1;
-  indicator.textContent = getLabel(catCur);
-  const bi = document.getElementById('btnInicio');
-  catCur === 0 ? bi.classList.remove('visible') : bi.classList.add('visible');
-}
-
-function goHome() {
-  if (catCur === 0) return;
-  catFlip(0, 'prev');
-}
-
-function navNext() { const t = getTotal(); if (catCur < t-1) catFlip(catCur+1,'next'); }
-function navPrev() { if (catCur > 0) catFlip(catCur-1,'prev'); }
-
-btnNext.addEventListener('click', navNext);
-btnPrev.addEventListener('click', navPrev);
-
-document.addEventListener('keydown', e => {
-  if (!document.body.classList.contains('catalog-active')) return;
-  if (e.key==='ArrowRight') navNext();
-  if (e.key==='ArrowLeft')  navPrev();
-});
-
-// Touch swipe
-let tx = 0;
-scene.addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, {passive:true});
-scene.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - tx;
-  if (Math.abs(dx) < 36) return;
-  if (dx < 0) navNext();
-  if (dx > 0) navPrev();
-});
-
-// Click zones
-document.getElementById('book').addEventListener('click', e => {
-  if (e.target.closest('.wa-btn,.prod-img-wrap,.detail-close')) return;
-  const rect = e.currentTarget.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  if (x < rect.width*.22) navPrev();
-  if (x > rect.width*.78) navNext();
-});
-
-// Detail panel toggle
-function toggleDetail(wrap) {
-  const wasOpen = wrap.classList.contains('open');
-  wrap.closest('.page').querySelectorAll('.prod-img-wrap.open').forEach(w => w.classList.remove('open'));
-  if (!wasOpen) wrap.classList.add('open');
-}
-
-// Mobile/PC toggle for catalog
-function setCatView(v) {
-  const wasMobile = catMobile;
-  catMobile = (v === 'mobile');
-  scene.classList.toggle('mobile-view', catMobile);
-  document.getElementById('btnMobile').classList.toggle('active', catMobile);
-  document.getElementById('btnPC').classList.toggle('active', !catMobile);
-  document.querySelectorAll('.prod-img-wrap.open').forEach(w => w.classList.remove('open'));
-
-  // Reset to page 0 when switching modes to avoid index mismatch
-  if (wasMobile !== catMobile) {
-    catCur = 0;
-    showStep(0);
-    catUpdate();
-  }
-}
-
-showStep(0);
-catUpdate();
-</script>
-
 <!-- Original site script (runs after DOM) -->
 <script>
 // Product data with 10-line descriptions
@@ -3926,6 +3013,57 @@ faqItems.forEach((item) => {
     });
     item.classList.toggle("active");
   });
+});
+
+/* ── CTA Product Dropdown ── */
+function toggleProductDropdown(e) {
+  e.stopPropagation();
+  const dd = document.getElementById('productDropdown');
+  dd.classList.toggle('open');
+  dd.setAttribute('aria-hidden', !dd.classList.contains('open'));
+}
+
+function scrollToProduct(productId) {
+  // Close dropdown
+  const dd = document.getElementById('productDropdown');
+  dd.classList.remove('open');
+  dd.setAttribute('aria-hidden', 'true');
+
+  // Scroll to productos section
+  const section = document.getElementById('productos');
+  if (section) {
+    const headerOffset = 90;
+    const top = section.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  // After scroll, find and highlight the card, then open its modal
+  setTimeout(() => {
+    const card = document.querySelector('[data-product="' + productId + '"]');
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Pulse effect
+      card.style.transition = 'box-shadow 0.3s ease, transform 0.3s ease';
+      card.style.boxShadow = '0 0 0 3px rgba(212,175,55,0.8), ' + getComputedStyle(document.documentElement).getPropertyValue('--shadow-lg');
+      card.style.transform = 'translateY(-8px)';
+      setTimeout(() => {
+        card.style.boxShadow = '';
+        card.style.transform = '';
+        // Open modal
+        const product = productsData[productId];
+        if (product) openModal(product);
+      }, 600);
+    }
+  }, 700);
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('productDropdown');
+  if (dd && dd.classList.contains('open') && !e.target.closest('.cta-wrapper')) {
+    dd.classList.remove('open');
+    dd.setAttribute('aria-hidden', 'true');
+  }
 });
 
 </script>
