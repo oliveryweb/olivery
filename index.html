@@ -593,6 +593,122 @@ body.dark-theme .moon-icon {
   box-shadow: var(--shadow-xl);
 }
 
+.awards-showcase {
+  position: relative;
+  padding: 10px 0 70px;
+}
+
+.awards-showcase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1040px, 86vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.awards-intro {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.awards-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(144, 157, 67, 0.12);
+  border: 1px solid rgba(144, 157, 67, 0.2);
+}
+
+.awards-intro h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--heading);
+  margin-bottom: 12px;
+}
+
+.awards-intro p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.award-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  padding: 26px 24px 24px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: var(--transition-fast);
+}
+
+.award-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.award-card h4 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--primary);
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.award-subtitle {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.award-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.award-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.58;
+}
+
+.award-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), #b8942a);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+}
+
 .products {
   padding: 120px 0;
   background: var(--cream-dark);
@@ -1330,6 +1446,15 @@ body.dark-theme .modal-price {
     font-size: 2.2rem;
   }
 
+  .awards-showcase {
+    padding: 0 0 60px;
+  }
+
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -1414,6 +1539,20 @@ body.dark-theme .modal-price {
 
   .about {
     padding: 80px 0;
+  }
+
+  .awards-intro h3 {
+    font-size: 2rem;
+  }
+
+  .awards-intro p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .award-card {
+    padding: 22px 18px 20px;
+    border-radius: var(--radius-md);
   }
 
   .benefits {
@@ -2084,6 +2223,17 @@ body.dark-theme .section-title { color: var(--text); }
 body.dark-theme .section-subtitle { color: var(--text-muted); }
 body.dark-theme .about-text h2 { color: var(--text); }
 body.dark-theme .about-text p { color: var(--text-muted); }
+body.dark-theme .awards-eyebrow {
+  color: var(--accent);
+  background: rgba(229, 204, 128, 0.12);
+  border-color: rgba(229, 204, 128, 0.24);
+}
+body.dark-theme .award-card {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+body.dark-theme .award-card h4 { color: var(--accent); }
+body.dark-theme .award-subtitle { color: var(--primary-light); }
+body.dark-theme .award-list li { color: var(--text-muted); }
 body.dark-theme .hero .subtitle { color: var(--text-muted); }
 body.dark-theme .hero .description { color: var(--text-muted); }
 body.dark-theme .faq-question h3 { color: var(--text); }
@@ -2294,6 +2444,53 @@ body.dark-theme .dropdown-list li a:hover {
       <div class="about-image animate-on-scroll">
         <img src="descarga.jpeg" alt="Olivery Experiencia Gourmet"/>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="awards-showcase">
+  <div class="container">
+    <div class="awards-intro">
+      <span class="awards-eyebrow animate-on-scroll">Selección Reconocida</span>
+      <h3 class="animate-on-scroll">Aceites premiados en los principales certámenes del mundo</h3>
+      <p class="animate-on-scroll">En Olivery trabajamos con etiquetas distinguidas por jurados internacionales. Cada una sobresale por su perfil sensorial, su consistencia de cosecha y su excelencia técnica.</p>
+    </div>
+
+    <div class="awards-grid">
+      <article class="award-card animate-on-scroll">
+        <h4>El Mistol</h4>
+        <p class="award-subtitle">Reconocimientos internacionales</p>
+        <ul class="award-list">
+          <li>NYIOOC: Medalla de Oro 2023.</li>
+          <li>EVO IOOC (Italia): Oro en 2023, 2021 y 2016.</li>
+          <li>Terraolivo IOOC: Oro en 2022 y 2015.</li>
+          <li>London Olive Oil Awards: Plata 2024 en categoría Blend.</li>
+          <li>OLIVINUS: Gran Prestigio Oro 2025.</li>
+        </ul>
+      </article>
+
+      <article class="award-card animate-on-scroll">
+        <h4>Familia Zuccardi</h4>
+        <p class="award-subtitle">Premios de máxima distinción</p>
+        <ul class="award-list">
+          <li>Primer Premio Mario Solinas 2025 (COI), Hemisferio Sur.</li>
+          <li>OLIVE JAPAN 2024: Best of the Show por tercer año consecutivo.</li>
+          <li>NYIOOC 2024: Medalla de Oro para su monovarietal orgánico.</li>
+          <li>Más de 100 galardones internacionales en 20 cosechas.</li>
+        </ul>
+      </article>
+
+      <article class="award-card animate-on-scroll">
+        <h4>Laur</h4>
+        <p class="award-subtitle">Liderazgo y premios por producto</p>
+        <ul class="award-list">
+          <li>Número 1 del EVOO World Ranking durante tres años consecutivos.</li>
+          <li>Tricampeonato mundial confirmado en enero de 2024.</li>
+          <li>Laur Altos Limpios: Best Extra Virgin Olive Oil de Argentina (Athena IOOC 2023).</li>
+          <li>Laur Alto en Polifenoles: Oro y Best of the Best en BAIOOC 2023.</li>
+          <li>Laur Gran Mendoza: múltiples oros en NYIOOC y EVO IOOC.</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
